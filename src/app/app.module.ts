@@ -11,10 +11,12 @@ import { ConnecterComponent } from './connecter/connecter.component';
 
 import { ConventionComponent } from './convention/convention.component';
 import { DemandeComponent } from './demande/demande.component';
-import { DepotComponent } from './depot/depot.component';
+import { DepotComponent } from './inscription/depot/depot.component';
 import { JournalComponent } from './journal/journal.component';
 import { AffectationComponent } from './affectation/affectation.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -24,15 +26,26 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
     AppComponent,
     AccueilComponent,
     AproposComponent, 
-     InscriptionComponent, ConnecterComponent, ConventionComponent, DemandeComponent, DepotComponent, JournalComponent, AffectationComponent, ReclamationComponent,
+    InscriptionComponent, 
+    ConnecterComponent, 
+    ConventionComponent, 
+    DemandeComponent, 
+    DepotComponent, 
+    JournalComponent, 
+    AffectationComponent, 
+    ReclamationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule
    
        
   ],
-  providers: [],
+  providers: [
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
