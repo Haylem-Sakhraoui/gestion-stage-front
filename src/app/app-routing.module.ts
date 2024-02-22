@@ -8,7 +8,7 @@ import { ConnecterComponent } from './connecter/connecter.component';
 
 import { ConventionComponent } from './convention/convention.component';
 import { DemandeComponent } from './demande/demande.component';
-import { DepotComponent } from './depot/depot.component';
+import { DepotComponent } from './inscription/depot/depot.component';
 import { JournalComponent } from './journal/journal.component';
 import { AffectationComponent } from './affectation/affectation.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
@@ -18,8 +18,7 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'apropos', component: AproposComponent },
   { path: 'inscription', component: InscriptionComponent },
- 
-  { path: 'connecter', component: ConnecterComponent },
+  { path: 'login', component: ConnecterComponent },
   { path: 'convention', component: ConventionComponent },
   { path: 'demande', component: DemandeComponent },
   { path: 'depot', component: DepotComponent },
