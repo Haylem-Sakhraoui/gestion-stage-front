@@ -18,6 +18,8 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { ListoffreComponent } from './listoffre/listoffre.component';
+
 
 
 
@@ -33,7 +35,7 @@ import { FormsModule } from '@angular/forms';
     DepotComponent, 
     JournalComponent, 
     AffectationComponent, 
-    ReclamationComponent,
+    ReclamationComponent, ListoffreComponent,
   ],
   imports: [
     BrowserModule,
