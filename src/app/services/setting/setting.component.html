@@ -1,0 +1,100 @@
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <!-- <div id="preloader">
+      <div class="jumper">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+  </div>   -->
+  <!-- ***** Preloader End ***** -->
+
+  
+  <header class="">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" routerLink="/accueil">
+          <h2>Esprit Stage </h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/accueil">Accueil
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="user.role === 'ADMIN'||'SERVICESTAGE'">
+              <a class="nav-link" routerLink="/inscription">create user </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/reclamation">Reclamation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- Page Content -->
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h1>profile Information</h1>        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="request-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+          <div *ngIf="user">
+              
+              <section>
+                <label>First Name</label>
+                  <h2> {{ user.firstname }}</h2> <br>
+                  <label>Last Name</label>
+                  <h2>{{ user.lastname }}</h2> <br>
+                  <label>Email</label>
+                  <h2>{{ user.email }}</h2>
+              </section>
+              <section *ngIf="user.role === 'STUDENT'">
+                  <label>Student Class</label>
+                  <h2>{{ user.studentClass }}</h2>
+              </section>
+          </div>
+          <br>
+          <button class="btn-success col-md-4" (click)="redirectToResetPassword()">Reset Password</button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="partners">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="owl-partners owl-carousel">
+            <div class="partner-item">
+              <img src="assets/images/client-01.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+  
+  
+
