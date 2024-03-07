@@ -10,34 +10,28 @@ import { AuthenticationResponse } from '../models/authentication_response';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent  {
-  registerRequest: RegisterRequest; 
+  // registerRequest: RegisterRequest; 
+  registerRequest: RegisterRequest = { firstname: '', lastname: '', email: '', password: '', role: '' };
+
   authResponse: AuthenticationResponse = {};
   message = '';
-  constructor(private authService: AuthService, private router: Router) {
-    this.registerRequest = {
-      email: '',
-      password: '',
-    };
-  }
+  constructor(private authService: AuthService, private router: Router) {}
   
   ngOnInit(): void {
   }
-  register() {
+  addUser() {
     this.message = '';
     this.authService.addUser(this.registerRequest)
-      .subscribe({
-        next: (response) => {
-          if (response) {
-            this.authResponse = response;
-          } else {
-            // inform the user
-            this.message = 'Account created successfully\nYou will be redirected to the Login page in 3 seconds';
-            setTimeout(() => {
-              this.router.navigate(['login']);
-            }, 4200)
-          }
+      .subscribe(
+        (response) => {
+          console.log('User added successfully:', response);
+          // You can add further logic here, such as displaying a success message or redirecting to another page
+        },
+        (error) => {
+          console.error('Error adding user:', error);
+          // Handle error appropriately, e.g., display an error message to the user
         }
-      });
+      );
     }
 
 }

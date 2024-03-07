@@ -1,0 +1,77 @@
+<div class="container">
+  <h1>Administration Interface</h1>
+
+  <div class="section">
+    <h2>Student list</h2>
+    <button class="show-list" (click)="toggleList('etudiants')">Afficher/Cacher la liste</button>
+    <table id="etudiants" *ngIf="studentList.length > 0">
+      <thead>
+        <tr>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>Classe</th>
+          <th>Email</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of studentList">
+          <td>{{ student.firstname }}</td>
+          <td>{{ student.lastname }}</td>
+          <td>{{ student.studentClass }}</td>
+          <td>{{ student.email }}</td>
+          <td><span class="badge" [ngClass]="{'enabled': student.enabled, 'disabled': !student.enabled}">{{
+              student.enabled ? 'Enabled' : 'Disabled' }}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Supervisors List</h2>
+    <button class="show-list" (click)="toggleList('superviseurs')">Afficher/Cacher la liste</button>
+    <table id="superviseurs" *ngIf="supervisorList.length > 0">
+      <thead>
+        <tr>
+          <th>firstName</th>
+          <th>LastName</th>
+          <th>Email</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let supervisor of supervisorList">
+          <td>{{ supervisor.firstname }}</td>
+          <td>{{ supervisor.lastname }}</td>
+          <td>{{ supervisor.email }}</td>
+          <td><span class="badge" [ngClass]="{'enabled': supervisor.enabled, 'disabled': !supervisor.enabled}">{{
+              supervisor.enabled ? 'Enabled' : 'Disabled' }}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Internship Services List</h2>
+    <button class="show-list" (click)="toggleList('services')">Afficher/Cacher la liste</button>
+    <table id="services" *ngIf="serviceList.length > 0">
+      <thead>
+        <tr>
+          <th>firstName</th>
+          <th>LastName</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let service of serviceList">
+          <td>{{ service.firstname }}</td>
+          <td>{{ service.lastname }}</td>
+          <td>{{ service.email }}</td>
+          <td><span class="badge" [ngClass]="{'enabled': service.enabled, 'disabled': !service.enabled}">{{
+              service.enabled ? 'Enabled' : 'Disabled' }}</span></td>
+          <!-- <button class="show-list" (click)="">enable</button> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
