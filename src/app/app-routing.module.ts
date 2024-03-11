@@ -17,6 +17,7 @@ import { authGuard } from './services/auth/auth.guard.service';
 import { AdministrationComponent } from './admin/administration/administration.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SettingComponent } from './services/setting/setting.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
@@ -31,9 +32,10 @@ const routes: Routes = [
   { path: 'affectation', component: AffectationComponent },
   { path: 'userlist', component: UserListComponent, canActivate: [authGuard] },
   { path: 'reclamation', component: ReclamationComponent },
-  { path: 'administration', component: AdministrationComponent },
+  { path: 'administration', component: AdministrationComponent, canActivate: [authGuard] },
   { path: 'reset-password', component: ResetPasswordComponent },
-  { path: 'setting', component: SettingComponent }
+  { path: 'setting', component: SettingComponent , canActivate: [authGuard] },
+  { path: 'forget-password', component: ForgetPasswordComponent }
 
 ];
 

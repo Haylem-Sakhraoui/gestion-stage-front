@@ -70,11 +70,38 @@ export class AdministrationComponent {
         list.classList.toggle('hidden');
     }
 }
-// enbale():void{
-//   this.userService.enableUser(this.userService.user.email as string).subscribe((res:any)=>{
-//     this.ngOnInit()
-//   }),
 
-// }
+disableUser(email: string): void {
+  this.userService.disableUser(email).subscribe(
+    () => {
+      console.log('User disabled successfully');
+      this.refreshUserLists();
+    },
+    (error) => {
+      console.error('Error disabling user:', error);
+      // Handle error appropriately
+    }
+  );
+}
+
+enableUser(email: string): void {
+  this.userService.enableUser(email).subscribe(
+    () => {
+      console.log('User enabled successfully');
+      this.refreshUserLists();
+    },
+    (error) => {
+      console.error('Error enabling user:', error);
+      // Handle error appropriately
+    }
+  );
+}
+
+private refreshUserLists(): void {
+  this.getstudentList();
+  this.getsupervisorList();
+  this.getserviceList();
+}
+
 
 }
