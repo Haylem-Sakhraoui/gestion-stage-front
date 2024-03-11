@@ -11,7 +11,9 @@ import { DemandeComponent } from './demande/demande.component';
 import { DepotComponent } from './depot/depot.component';
 import { JournalComponent } from './journal/journal.component';
 import { AffectationComponent } from './affectation/affectation.component';
-import { ReclamationComponent } from './reclamation/reclamation.component';
+import { ReclamationComponent } from './reclamationmanagement/reclamationAdmin/reclamation.component';
+import { ReclamationFormComponent } from './reclamationmanagement/reclamation-form/reclamation-form.component';
+import { RetrieveClaimComponent } from './reclamationmanagement/retrieve-claim/retrieve-claim.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
@@ -26,7 +28,10 @@ const routes: Routes = [
   { path: 'journal', component: JournalComponent },
   { path: 'affectation', component: AffectationComponent },
   
-  { path: 'reclamation', component: ReclamationComponent }
+  { path: 'reclamation', component: ReclamationComponent },
+  {path: 'reclamation-form', component: ReclamationFormComponent},
+  
+  {path: 'retrieveClaim/:id', component: RetrieveClaimComponent}
 ];
 
 @NgModule({

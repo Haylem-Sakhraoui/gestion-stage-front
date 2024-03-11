@@ -1,7 +1,7 @@
 
 
 
-  <body>
+<body>
 
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
@@ -61,6 +61,9 @@
                 <li class="nav-item">
                 <a class="nav-link" href="/reclamation">Reclamation </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/reclamation-form">Ajouter Reclamation </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -73,71 +76,82 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>s'inscrire</h1>
+            <h1>Ajouter Reclamation</h1>
             <span>We are over 20 years of experience</span>
           </div>
         </div>
       </div>
     </div>
-
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                      <form (ngSubmit)="onSubmit()" class="contact-form">
   
-    <div class="callback-form">
-      <div class="section-heading">
-        <h2>Inscription</h2>
-      </div>
-      
-      <form id="contact" action="" method="get">
-        <div class="form-group">
-          <input name="nom" type="text" class="form-control" placeholder="Nom" required>
-        </div>
-        
-        <div class="form-group">
-          <input name="prenom" type="text" class="form-control" placeholder="Prénom" required>
-        </div>
-        
-        <div class="form-group">
-          <input name="email" type="email" class="form-control" placeholder="Adresse e-mail" required>
-        </div>
-        
-        <div class="form-group">
-          <input name="password" type="password" class="form-control" placeholder="Mot de passe" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="pet-select">Choisir un rôle :</label>
-          <select class="form-control" name="role" id="pet-select" required>
-            <option value="" disabled>-- Choisir un rôle --</option>
-            <br>
-            <option value="admin">Admin</option>
-            <option value="etudiant">Étudiant</option>
-            <option value="entreprise">Entreprise</option>
-          </select>
-        </div>
-      
-        
-        <div class="form-group">
-          <button type="submit" id="form-submit">S'inscrire</button>
-        </div>
-      </form>
-    </div>
-
-    <div class="partners">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="owl-partners owl-carousel">
-              <div class="partner-item">
-                <img src="assets/images/client-01.png" alt="">
+                          <div class="form-group">
+                              <label for="description">Description:</label>
+                              <textarea id="description" name="description" [(ngModel)]="reclamation.description"
+                                  class="form-control" required></textarea>
+                          </div>
+  
+                          <div class="form-group">
+                              <label for="dateCreation">Date Creation:</label>
+                              <input type="date" id="dateCreation" name="dateCreation" [(ngModel)]="reclamation.dateCreation"
+                                  class="form-control" required>
+                          </div>
+  
+                          <div class="form-group">
+                              <label for="statutReclamation">Statut Reclamation:</label>
+                              <select id="statutReclamation" name="statutReclamation"
+                                  [(ngModel)]="reclamation.statutReclamation" class="form-control" required disabled>
+                                  <option value="EN_ATTENTE">En Attente</option>
+                              </select>
+                          </div>
+  
+                          <div class="form-group">
+                              <label for="userid">User ID:</label>
+                              <input type="number" id="userid" name="userid" [(ngModel)]="reclamation.iduser"
+                                  class="form-control" required>
+                          </div>
+  
+                          <div class="text-center">
+                              <button type="submit" class="btn btn-danger btn-details ml-2">Submit</button>
+                          </div>
+                      </form>
+                  </div>
               </div>
+          </div>
+      </div>
+  </div>
+  
+  
+  <div class="partners">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="owl-partners owl-carousel">
+            <div class="partner-item">
+              <img src="assets/images/client-01.png" alt="">
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 
-   
 
-  
 
-  </body>
+
+
+</body>
+
+
+
+
+
+
+
+
+
