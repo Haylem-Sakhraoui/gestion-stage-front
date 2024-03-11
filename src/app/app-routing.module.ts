@@ -14,14 +14,20 @@ import { AffectationComponent } from './affectation/affectation.component';
 import { ReclamationComponent } from './reclamationmanagement/reclamationAdmin/reclamation.component';
 import { ReclamationFormComponent } from './reclamationmanagement/reclamation-form/reclamation-form.component';
 import { RetrieveClaimComponent } from './reclamationmanagement/retrieve-claim/retrieve-claim.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
+import { authGuard } from './services/auth/auth.guard.service';
+import { AdministrationComponent } from './admin/administration/administration.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { SettingComponent } from './services/setting/setting.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
-  { path: 'accueil', component: AccueilComponent },
+  { path: 'accueil', component: AccueilComponent, canActivate: [authGuard] },
   { path: 'apropos', component: AproposComponent },
-  { path: 'inscription', component: InscriptionComponent },
- 
-  { path: 'connecter', component: ConnecterComponent },
+  { path: 'inscription', component: InscriptionComponent, canActivate: [authGuard] },
+  { path: 'login', component: ConnecterComponent },
   { path: 'convention', component: ConventionComponent },
   { path: 'demande', component: DemandeComponent },
   { path: 'depot', component: DepotComponent },
@@ -32,6 +38,14 @@ const routes: Routes = [
   {path: 'reclamation-form', component: ReclamationFormComponent},
   
   {path: 'retrieveClaim/:id', component: RetrieveClaimComponent}
+
+  { path: 'userlist', component: UserListComponent, canActivate: [authGuard] },
+  { path: 'reclamation', component: ReclamationComponent },
+  { path: 'administration', component: AdministrationComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'setting', component: SettingComponent }
+
+
 ];
 
 @NgModule({

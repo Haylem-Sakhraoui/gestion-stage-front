@@ -1,16 +1,13 @@
-
-
-
   <body>
 
     <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div class="jumper">
             <div></div>
             <div></div>
             <div></div>
         </div>
-    </div>  
+    </div>   -->
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
@@ -38,28 +35,31 @@
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="/accueil"><h2>Esprit Stage </h2></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand" href="/accueil">
+            <h2>Esprit Stage </h2>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
                 <a class="nav-link" href="/accueil">Accueil
-                  
+
+                <a class="nav-link" routerLink="/accueil">Accueil
+                  <span class="sr-only">(current)</span>
+
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/apropos">A propos</a>
-              </li>  
-             <li class="nav-item">
-                <a class="nav-link" href="/inscription">s'inscrit</a>
+                <a class="nav-link" routerLink="/inscription">create user </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/connecter"> se connecter</a>
+                <a class="nav-link" routerLink="/userlist">User List </a>
               </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/reclamation">Reclamation </a>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/reclamation">Reclamation</a>
               </li>
             </ul>
           </div>
@@ -73,53 +73,51 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>s'inscrire</h1>
-            <span>We are over 20 years of experience</span>
+            <h1>create user</h1>
           </div>
         </div>
       </div>
     </div>
 
   
-    <div class="callback-form">
-      <div class="section-heading">
-        <h2>Inscription</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <h2>Add User Information</h2>
+          <form (ngSubmit)="addUser()">
+            <div class="form-group">
+              <label for="firstname">First Name</label>
+              <input type="text" class="form-control" id="firstname" [(ngModel)]="registerRequest.firstname" name="firstname" required>
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last Name</label>
+              <input type="text" class="form-control" id="lastname" [(ngModel)]="registerRequest.lastname" name="lastname" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" id="email" [(ngModel)]="registerRequest.email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" [(ngModel)]="registerRequest.password" name="password" required>
+            </div>
+            <div class="form-group">
+              <label for="role">Role</label>
+              <select class="form-control" id="role" [(ngModel)]="registerRequest.role" name="role" required>
+                <option value="SERVICESTAGE">SERVICESTAGE</option>
+                <option value="STUDENT">STUDENT</option>
+                <option value="SUPERVISOR">SUPERVISOR</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">ADD</button>
+          </form>
+          <div *ngIf="message" class="alert alert-dismissible alert-success mt-3">
+            {{ message }}
+          </div>
+        </div>
       </div>
-      
-      <form id="contact" action="" method="get">
-        <div class="form-group">
-          <input name="nom" type="text" class="form-control" placeholder="Nom" required>
-        </div>
-        
-        <div class="form-group">
-          <input name="prenom" type="text" class="form-control" placeholder="Prénom" required>
-        </div>
-        
-        <div class="form-group">
-          <input name="email" type="email" class="form-control" placeholder="Adresse e-mail" required>
-        </div>
-        
-        <div class="form-group">
-          <input name="password" type="password" class="form-control" placeholder="Mot de passe" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="pet-select">Choisir un rôle :</label>
-          <select class="form-control" name="role" id="pet-select" required>
-            <option value="" disabled>-- Choisir un rôle --</option>
-            <br>
-            <option value="admin">Admin</option>
-            <option value="etudiant">Étudiant</option>
-            <option value="entreprise">Entreprise</option>
-          </select>
-        </div>
-      
-        
-        <div class="form-group">
-          <button type="submit" id="form-submit">S'inscrire</button>
-        </div>
-      </form>
     </div>
+    
 
     <div class="partners">
       <div class="container">
@@ -135,9 +133,5 @@
       </div>
     </div>
 
-
-   
-
-  
-
+    
   </body>
