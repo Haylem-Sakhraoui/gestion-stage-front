@@ -24,11 +24,14 @@ import { RetrieveClaimComponent } from './reclamationmanagement/retrieve-claim/r
 
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { AdministrationComponent } from './admin/administration/administration.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SettingComponent } from './services/setting/setting.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+
+
 
 
 
@@ -45,6 +48,8 @@ import { SettingComponent } from './services/setting/setting.component';
     DepotComponent,
     JournalComponent,
     AffectationComponent,
+    ReclamationComponent, UserListComponent, AdministrationComponent, ResetPasswordComponent, SettingComponent, ForgetPasswordComponent,
+
 
   ReclamationComponent,
   ReclamationFormComponent,
@@ -53,6 +58,7 @@ import { SettingComponent } from './services/setting/setting.component';
     // Remove ReclamationComponent from declarations
 
     ReclamationComponent, UserListComponent, AdministrationComponent, ResetPasswordComponent, SettingComponent,
+
 
   ],
   imports: [
@@ -69,7 +75,8 @@ import { SettingComponent } from './services/setting/setting.component';
   providers: [ReclamationService],
   bootstrap: [AppComponent],
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
 
 
   ],

@@ -34,12 +34,12 @@ export class userService {
 
   public disableUser(email: string) {
     const body = { email: email }
-    return this.httpClient.put(this.baseUrl+ "disableUser", body);
+    return this.httpClient.put(this.baseUrl+ "/disableUser", body);
   }
 
   public enableUser(email: string) {
     const body = { email: email }
-    return this.httpClient.put(this.baseUrl+ "enableUser", body);
+    return this.httpClient.put(this.baseUrl+ "/enableUser", body);
   }
 
 
