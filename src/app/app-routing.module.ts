@@ -12,7 +12,7 @@ import { DepotComponent } from './inscription/depot/depot.component';
 import { JournalComponent } from './journal/journal.component';
 import { AffectationComponent } from './affectation/affectation.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
-import { ListoffreComponent } from './listoffre/listoffre.component';
+
 
 
 const routes: Routes = [
@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'depot', component: DepotComponent },
   { path: 'journal', component: JournalComponent },
   { path: 'affectation', component: AffectationComponent },
-  { path: 'stages', component: ListoffreComponent },
+
   { path: 'reclamation', component: ReclamationComponent }
 ];
 

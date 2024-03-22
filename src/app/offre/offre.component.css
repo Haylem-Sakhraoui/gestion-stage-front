@@ -1,0 +1,138 @@
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .page-heading.header-text {
+    margin-bottom: 20px; /* Adjust the value as needed */
+  }
+  #preloader {
+    display: none;
+  }
+  .card:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-header {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .card-header h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .details li {
+    margin-bottom: 5px;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .card-footer {
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+  
+  .btn-primary {
+    background-color: #ced1d1;
+    border-color: #e3e7e7;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #dd8585;
+  }
+  .card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    /* Change from "justify-content: space-between" */
+    justify-content: flex-start; /* Align cards to the left */
+    /* Optional: Add a margin to the rightmost card if needed */
+    /* margin-right: -10px; */
+  }
+  
+  .card {
+    /* Change from "flex: 0 0 33.33%" */
+    flex: 1 0 auto; /* Allow cards to grow horizontally */
+    /* Optional: Adjust width as needed */
+    /* width: 300px; */
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the card title */
+  .card-title {
+    font-size: 1.25rem;
+    color: #333;
+  }
+  
+  /* Style the card text */
+  .card-text {
+    color: #666;
+  }
+  
+  /* Style the list group items */
+  .list-group-item {
+    border: none;
+  }
+  
+  /* Style the buttons */
+  .btn {
+    border-radius: 20px;
+    padding: 8px 16px;
+  }
+  
+  /* Style the Postuler button */
+  .btn-outline-secondary {
+    background-color: #f0f0f0;
+    color: #333;
+    border-color: #ccc;
+  }
+  
+  /* Style the like button */
+  .btn-outline-primary {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  
+  /* Style the dislike button */
+  .btn-outline-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border-color: #dc3545;
+  }
+  
+  /* Add some spacing between buttons */
+  .btn-group > .btn {
+    margin-right: 10px;
+  }
