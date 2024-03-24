@@ -22,6 +22,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { SettingComponent } from './services/setting/setting.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ReclamationComponent } from './reclamationmanagement/reclamationAdmin/reclamation.component';
+import { OffreComponent } from './offre/offre.component';
+import { UploadOffreComponent } from './upload-offre/upload-offre.component';
+import { CvstageComponent } from './cvstage/cvstage.component';
 
 
 
@@ -36,10 +39,10 @@ const routes: Routes = [
   { path: 'depot', component: DepotComponent },
   { path: 'journal', component: JournalComponent },
   { path: 'affectation', component: AffectationComponent },
-
-
+  { path: 'offre', component: OffreComponent },
   
-
+  { path: 'uploadoffre', component: UploadOffreComponent },
+  { path: 'uploadcv', component: CvstageComponent },
   
   { path: 'reclamation', component: ReclamationComponent },
   {path: 'reclamation-form', component: ReclamationFormComponent},

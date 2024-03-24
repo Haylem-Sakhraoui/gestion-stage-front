@@ -80,47 +80,48 @@
    
   
     <div class="row">
-      <div class="col-md-4" *ngFor="let offre of offres"> <!-- Removed | async -->
-        <div class="service-item">
-          <div class="table-responsive">
-            <table class="table custom-table">
-              <thead>
-                <tr>
-                  <th colspan="2">{{ offre.typeStage }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="custom-table-column">Description:</td>
-                  <td>{{ offre.description }}</td>
-                </tr>
-                <tr>
-                  <td class="custom-table-column">Nombre de stagiaires:</td>
-                  <td>{{ offre.nbStagiaire }}</td>
-                </tr>
-                <tr>
-                  <td class="custom-table-column">Compétence:</td>
-                  <td>{{ offre.competence }}</td>
-                </tr>
-                <!-- Moved the div inside a td with colspan for proper HTML structure -->
-                <tr>
-                  <td colspan="2">
-                    <div class="btn-group">
-                      <button class="btn btn-secondary" (click)="onClickPostuler()">Postuler</button>
-                      <!-- Ensure the property is correctly cased as in your model -->
-                      <button class="btn btn-sm btn-outline-primary" (click)="likeOffre(offre.idStage)">
-                        <i class="bi bi-hand-thumbs-up"></i> {{ offre.likes }}
-                      </button>
-                      <button class="btn btn-sm btn-outline-danger" (click)="dislikeOffre(offre.idStage)">
-                        <i class="bi bi-hand-thumbs-down"></i> {{ offre.dislikes }}
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="col-md-12">
+        <!-- Input field for searching by type -->
+        <input type="text" class="form-control mb-3" placeholder="Search by type..." [(ngModel)]="searchType" (input)="reloadData()">
+      </div>
+      <div class="col-md-4 mb-4" *ngFor="let offre of offres"> 
+      <div class="card-header bg-gris text-white"> <!-- Change bg-primary to bg-gris -->
+          <h5 class="card-title">{{ offre.typeStage }}</h5>
+       </div>
+           
+          
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <td class="custom-table-column">Description:</td>
+                    <td>{{ offre.description }}</td>
+                  </tr>
+                  <tr>
+                    <td class="custom-table-column">Nombre de stagiaires:</td>
+                    <td>{{ offre.nbStagiaire }}</td>
+                  </tr>
+                  <tr>
+                    <td class="custom-table-column">Compétence:</td>
+                    <td>{{ offre.competence }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="btn-group">
+              <button class="btn btn-secondary" (click)="onClickPostuler()">Postuler</button>
+              <button class="btn btn-sm btn-outline-primary" (click)="likeOffre(offre.idStage)">
+                <i class="bi bi-hand-thumbs-up"></i> {{ offre.likes }}
+              </button>
+              <button class="btn btn-sm btn-outline-danger" (click)="dislikeOffre(offre.idStage)">
+                <i class="bi bi-hand-thumbs-down"></i> {{ offre.dislikes }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    
     

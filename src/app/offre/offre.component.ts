@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class OffreComponent {
   offres: Offre[] = []; // Use a local array to store offers
+  searchType: string = '';
+
 
   constructor(private offreService: OffreService, private router: Router) {}
 
@@ -17,29 +19,43 @@ export class OffreComponent {
     this.reloadData();
   }
 
-  reloadData() {
-    this.offreService.getStageList().subscribe(data => {
-      this.offres = data; // Directly store the data in the local array
-    });
-  }
-
   onClickPostuler() {
     this.router.navigate(['/uploadcv']); 
   }
 
+  reloadData() {
+    if (this.searchType) {
+      // If search type is provided, fetch offers by type
+      this.offreService.getOffers(this.searchType).subscribe(data => {
+        this.offres = data.sort((a, b) => b.likes - a.likes);
+      });
+    } else {
+      // Otherwise, fetch all offers
+      this.offreService.getStageList().subscribe(data => {
+        this.offres = data.sort((a, b) => b.likes - a.likes);
+      });
+    }
+  }
+
   likeOffre(idStage: number) {
     this.offreService.likeStage(idStage).subscribe(() => {
-      // Find the offer and increment its like count
+      // Increment likes count and resort the offers array
       const offre = this.offres.find(o => o.idStage === idStage);
-      if (offre) offre.likes += 1;
+      if (offre) {
+        offre.likes += 1;
+        this.offres.sort((a, b) => b.likes - a.likes);
+      }
     });
   }
 
   dislikeOffre(idStage: number) {
     this.offreService.dislikeStage(idStage).subscribe(() => {
-      // Find the offer and increment its dislike count
-      const offre = this.offres.find(o => o.idStage=== idStage);
-      if (offre) offre.dislikes += 1;
+      // Increment dislikes count and resort the offers array
+      const offre = this.offres.find(o => o.idStage === idStage);
+      if (offre) {
+        offre.dislikes += 1;
+        this.offres.sort((a, b) => b.likes - a.likes);
+      }
     });
   }
 }

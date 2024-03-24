@@ -35,6 +35,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 
 
 import { OffreComponent } from './offre/offre.component';
+import { UploadOffreComponent } from './upload-offre/upload-offre.component';
+import { CvstageComponent } from './cvstage/cvstage.component';
 
 
 
@@ -64,10 +66,12 @@ import { OffreComponent } from './offre/offre.component';
     AffectationComponent,
     ReclamationComponent, UserListComponent, AdministrationComponent, ResetPasswordComponent, SettingComponent, ForgetPasswordComponent,
 
-
+    OffreComponent,
   ReclamationComponent,
   ReclamationFormComponent,
   RetrieveClaimComponent,
+  UploadOffreComponent,
+  CvstageComponent,
   
    
     
