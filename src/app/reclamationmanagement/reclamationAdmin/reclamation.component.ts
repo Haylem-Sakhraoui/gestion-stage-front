@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ReclamationService } from '../../services/reclamation.service';
-import { Reclamation, StatutReclamation } from '../../services/reclamation';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Reclamation, StatutReclamation } from 'src/app/models/reclamation';
 
 @Component({
   selector: 'app-reclamation',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./reclamation.component.css']
 })
 export class ReclamationComponent implements OnInit {
-  reclamationArray: Reclamation[] = [];
+  reclamationArray: any;
   pages: Array<number> = [];
   itemsPerPage: number = 5;
   totalPages: number = 0;
@@ -19,24 +20,71 @@ export class ReclamationComponent implements OnInit {
   showNoItems: boolean = false;
   page: number = 0; // declare the 'page' property
   filter: boolean = false; 
+  
+  selectedStatut: StatutReclamation | null = null;
 
+  statutValues: StatutReclamation[] = Object.values(StatutReclamation)
   @Input() reclamation: Reclamation = {
     idReclamation: 0,
     dateCreation: new Date(),
     description: '',
     statutReclamation: StatutReclamation.EnAttente,
-    firstname: '',
-    lastname: '',
-    email: '',
-    iduser: 0,
+    user: {
+      firstname: '',
+      lastname: '',
+      email: '',
+      id: 0
+    }
   };
+  
 
-  constructor(private reclamationService: ReclamationService, private fb: FormBuilder, private router: Router) {}
-
+  constructor(private reclamationService: ReclamationService,private authService: AuthService, private fb: FormBuilder, private router: Router) {}
+  logout() {
+    this.authService.logout();
+  }
   ngOnInit() {
     this.getAllReclamations();
+    this.loadReclamations();
   }
+  loadReclamations(): void {
+    if (this.selectedStatut) {
+      this.reclamationService.getReclamationsByStatut(this.selectedStatut).subscribe(
+        (reclamations) => {
+          this.reclamationArray = reclamations.map((reclamation) => ({
+            idReclamation: reclamation.idReclamation,
+            dateCreation: reclamation.dateCreation,
+            description: reclamation.description,
+            statutReclamation: reclamation.statutReclamation,
+            firstname: reclamation.user.firstname,
+            lastname: reclamation.user.lastname,
+            email: reclamation.user.email,
+            iduser: reclamation.user.id,
+          }));
+        },
+        (error) => {
+          console.error('Error fetching reclamations:', error);
+        }
+      );
+    } else {
+      // Handle when no statut is selected (load all reclamations, or handle as per your requirements)
+      this.reclamationService.getAllReclamations().subscribe(
+        (reclamations) => {
+          this.reclamationArray = reclamations;
+        },
+        (error) => {
+          console.error('Error fetching all reclamations:', error);
+        }
+      );
+    }
+  }
+  
 
+  filterByStatut(event: any): void {
+    const selectedValue = event.target.value;
+    this.selectedStatut = selectedValue !== "" ? selectedValue as StatutReclamation : null;
+    this.loadReclamations();
+  }
+  
   public getAllReclamations(): void {
     this.reclamationService.getAllReclamations().subscribe(
       (response: Reclamation[]) => {

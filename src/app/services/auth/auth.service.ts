@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { User } from '../../models/User';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map } from 'rxjs';
+import { of } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -93,6 +95,7 @@ export class AuthService {
   getUserRoles(login :string){    
     
   }
+  
 
   public retrieveUserConnected(token: string):void {
     const header= new HttpHeaders().set('Authorization', `Bearer ${token}`);
@@ -107,6 +110,25 @@ export class AuthService {
    console.log(user)
 
     
+  }
+  isAuthenticated(): Observable<boolean> {
+    const token = localStorage.getItem('token');
+    return of(token !== null); // Renvoie true si un jeton est présent, sinon false
+  } 
+  retrieveUserId(): Observable<number | null> {
+    const token = localStorage.getItem('token');
+    if (token) {
+      return this.httpClient.get<any>(`${this.baseUrl}/user/currentUser`).pipe(
+        map((user: any) => user.id), // Extraire l'ID de la réponse
+        catchError(error => {
+          console.error('Erreur lors de la récupération de l\'ID de l\'utilisateur :', error);
+          return of(null);
+        })
+      );
+    } else {
+      console.error('Aucun jeton d\'authentification trouvé');
+      return of(null);
+    }
   }
 
   getCurrentUser() {

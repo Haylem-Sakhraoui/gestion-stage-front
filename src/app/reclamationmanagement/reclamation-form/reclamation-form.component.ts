@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { Reclamation, StatutReclamation } from '../../services/reclamation';
+import { Reclamation, ReclamationWithUser, StatutReclamation } from '../../models/reclamation';
 import { ReclamationService } from '../../services/reclamation.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reclamation-form',
@@ -10,21 +12,31 @@ import { ReclamationService } from '../../services/reclamation.service';
 export class ReclamationFormComponent {
  
   userIds: number[] = [];  
-  reclamation: Reclamation = {
+  reclamation: ReclamationWithUser = {
     idReclamation: 0,
     dateCreation: new Date(),
     statutReclamation: StatutReclamation.EnAttente,
-    firstname: '',
-    lastname: '',
-    email: '',
-    description: '',
-    iduser: 0,
+    
+      firstname: '',
+      lastname: '',
+      email: '',
+      iduser: 0,
+    
+    description: ''
+  
     // Initialize other properties as needed
   };
 
-  constructor(private reclamationService: ReclamationService) {
+  constructor(private reclamationService: ReclamationService,  private authService : AuthService, private router: Router) {
 
   }
+  logout() {
+    this.authService.logout();
+  }
+  // Dans ReclamationFormComponent
+isNotAdmin(): boolean {
+  return !this.authService.roleMatch(['Admin']);
+}
 
   onSubmit() {
     this.reclamationService.addReclamation(this.reclamation).subscribe(
@@ -45,11 +57,14 @@ export class ReclamationFormComponent {
       idReclamation: 0,
       dateCreation: new Date(),
       statutReclamation: StatutReclamation.EnAttente,
-      firstname: '',
-      lastname: '',
-      email: '',
+   
+        firstname: '',
+        lastname: '',
+        email: '',
+        iduser: 0,
+      
       description: '',
-      iduser: 0,
+      
       // Initialize other properties as needed
     };
   }

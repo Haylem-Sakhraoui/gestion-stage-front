@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { ReclamationService } from 'src/app/services/reclamation.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-retrieve-claim',
@@ -20,9 +21,12 @@ export class RetrieveClaimComponent implements OnInit {
   constructor(
     private reclamationService: ReclamationService,
     private router: Router,
-    private activated: ActivatedRoute
+    private activated: ActivatedRoute,
+    private authService: AuthService
   ) {}
-
+  logout() {
+    this.authService.logout();
+  }
   ngOnInit(): void {
     this.activated.paramMap.subscribe((params) => {
       this.idReclamation = params.get('id');
