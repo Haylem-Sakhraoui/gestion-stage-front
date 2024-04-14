@@ -37,6 +37,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { OffreComponent } from './offre/offre.component';
 import { UploadOffreComponent } from './upload-offre/upload-offre.component';
 import { CvstageComponent } from './cvstage/cvstage.component';
+import { CvListComponent } from './cv-list/cv-list.component';
+
 
 
 
@@ -45,8 +47,8 @@ import { CvstageComponent } from './cvstage/cvstage.component';
   declarations: [
     AppComponent,
     AccueilComponent,
-
-    AproposComponent, 
+  
+     AproposComponent, 
     InscriptionComponent, 
     ConnecterComponent, 
     ConventionComponent, 
@@ -72,7 +74,8 @@ import { CvstageComponent } from './cvstage/cvstage.component';
   RetrieveClaimComponent,
   UploadOffreComponent,
   CvstageComponent,
-  
+  CvListComponent,
+ 
    
     
 
@@ -84,7 +87,8 @@ import { CvstageComponent } from './cvstage/cvstage.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-   
+    
+    
     CommonModule,
     ReactiveFormsModule
 ],

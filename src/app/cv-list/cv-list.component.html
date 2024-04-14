@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,70 +75,19 @@
     </nav>
   </header>
 
-
-  <!-- Page Content -->
-  <div class="page-heading header-text">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>postuler </h1>
-          <span>Des entreprises qui offrent des stages pour tous les niveaux et toutes les spécialités</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="callback-form">
-    <div class="section-heading">
-      <h2>Postuler</h2>
-    </div>
-    <form id="cv-form" (ngSubmit)="saveData($event)" class="custom-form" enctype="multipart/form-data">
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <fieldset>
-            <input name="Nom" [(ngModel)]="Cvstage.nom" class="form-control" id="Nom" placeholder="Nom" required>
-          </fieldset>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <fieldset>
-            <input name="Prenom" [(ngModel)]="Cvstage.prenom" class="form-control" id="Prenom" placeholder="Prenom" required>
-          </fieldset>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <fieldset>
-            <input name="Classe" [(ngModel)]="Cvstage.classe" class="form-control" id="Classe" placeholder="Classe" required>
-          </fieldset>
-        </div>
-       <div class="col-lg-6 col-md-6 col-sm-12">
-          <div class="form-group">
-            <label for="CvFile">CvFile (PDF)</label>
-            <input name="CvFile" type="file" class="form-control-file" id="CvFile" (change)="handleFileInput($event)" required>
-          </div>
-        </div> 
-        <div class="col-lg-12">
-          <div class="form-group">
-            <button type="submit" id="form-submit" class="btn btn-primary">Envoyer</button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-
-  <div class="partners">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="owl-partners owl-carousel">
-            <div class="partner-item">
-              <img src="assets/images/client-01.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</body>
-
-</html>
-
+<tbody>
+  <tr *ngFor="let cv of cvs; let i = index" [ngClass]="{'table-success': cv.isMatching}">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>{{ cv.nom }}</td> 
+    <td>{{ cv.prenom }}</td> 
+    <td>{{ cv.classe }}</td> 
+    <td>
+      <i *ngIf="cv.isMatching" class="fas fa-check-circle text-success"></i>
+      <i *ngIf="!cv.isMatching" class="fas fa-times-circle text-danger"></i>
+    </td>
+    <td>
+      <button class="btn btn-outline-primary" (click)="downloadCV(cv)">Download CV</button>
+      
+    </td>
+  </tr>
+</tbody>

@@ -1,0 +1,216 @@
+
+/* Add some padding and hover effect to each table row for better spacing and interactivity */
+tbody tr {
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  tbody tr:hover {
+    background-color: #f2f2f2; /* A light grey background on hover for better focus */
+  }
+  
+  /* Increase spacing within each cell for a less cramped look */
+  td, th {
+    padding: 12px 15px; /* Increase padding around text */
+    vertical-align: middle; /* Center content vertically for better alignment */
+  }
+  
+  /* Style the matching icon column to reduce text clutter */
+  td i.fas {
+    font-size: 1.2em; /* Increase the size of the icons */
+  }
+  
+  /* Add spacing between buttons for better visual separation and easier clicking */
+  button.btn {
+    margin-right: 8px; /* Add some margin to the right of buttons */
+  }
+  
+  /* Additional styling for the 'Download' and 'View Matches' buttons */
+  button.btn-outline-primary,
+  button.btn-outline-secondary {
+    padding: 6px 12px; /* Adjust padding for better button sizing */
+    border-radius: 4px; /* Rounded corners for the buttons */
+  }
+  
+  /* Special styling for matched rows to make them stand out */
+  tr.table-success {
+    background-color: #e6ffed; /* A soft green background for matched CVs */
+  }
+  container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .page-heading.header-text {
+    margin-bottom: 20px; /* Adjust the value as needed */
+  }
+  #preloader {
+    display: none;
+  }
+  .card:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .card-header h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .details li {
+    margin-bottom: 5px;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .card-footer {
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+  
+  .btn-primary {
+    background-color: #ced1d1;
+    border-color: #e3e7e7;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #dd8585;
+  }
+  .card-grid {
+    display: flex;
+    flex-wrap: wrap;
+   
+    justify-content: flex-start; 
+  }
+  
+  .card {
+    
+    flex: 1 0 auto; 
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .card-title {
+    margin-bottom: 0;
+    color: #ffffff; 
+  }
+  
+  
+  .card-text {
+    color: #666;
+  }
+  
+  
+  .list-group-item {
+    border: none;
+  }
+  
+  
+  .btn {
+    border-radius: 20px;
+    padding: 8px 16px;
+  }
+  
+  
+  .btn-outline-secondary {
+    background-color: #f0f0f0;
+    color: #333;
+    border-color: #ccc;
+  }
+  
+  
+  .btn-outline-primary {
+    background-color: #6d6e6e;
+    color: #fff;
+    border-color: #505050;
+  }
+  
+  /* Style the dislike button */
+  .btn-outline-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border-color: #dc3545;
+  }
+  
+  /* Add some spacing between buttons */
+  .btn-group > .btn {
+    margin-right: 10px;
+  }
+  /* Updated CSS code */
+  body {
+    padding-top: 100px; /* Adjusted padding-top to accommodate fixed navbar */
+  }
+  
+  .navbar {
+    position: fixed; /* Fixed position to keep the navbar at the top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure navbar appears above other content */
+  }
+  
+  .service-item {
+    margin-bottom: 40px; /* Increased margin-bottom between tables */
+  }
+  
+  /* Add margin to the top of page content to prevent overlapping with fixed navbar */
+  .page-content {
+    margin-top: 70px; /* Adjusted margin-top to account for fixed navbar height */
+  }
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  .mb-4 {
+    margin-bottom: 20px;
+  }
+  
+  
+  /* Style the table headers */
+  .table thead th {
+    border-top: none;
+  }
+  
+  /* Style the table rows */
+  .table tbody tr {
+    border-top: 1px solid #dee2e6;
+  }
+  
+  /* Style the table columns */
+  .custom-table-column {
+    font-weight: bold;
+  }
+  
+  /* Add shadow to cards */
+  .shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .bg-gris {
+    background-color: #000000; /* Define the gray color you want */
+  }

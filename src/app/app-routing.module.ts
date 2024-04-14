@@ -25,6 +25,7 @@ import { ReclamationComponent } from './reclamationmanagement/reclamationAdmin/r
 import { OffreComponent } from './offre/offre.component';
 import { UploadOffreComponent } from './upload-offre/upload-offre.component';
 import { CvstageComponent } from './cvstage/cvstage.component';
+import { CvListComponent } from './cv-list/cv-list.component';
 
 
 
@@ -43,6 +44,8 @@ const routes: Routes = [
   
   { path: 'uploadoffre', component: UploadOffreComponent },
   { path: 'uploadcv', component: CvstageComponent },
+  { path: 'CvList', component: CvListComponent },
+  
   
   { path: 'reclamation', component: ReclamationComponent },
   {path: 'reclamation-form', component: ReclamationFormComponent},
