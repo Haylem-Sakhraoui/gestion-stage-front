@@ -1,6 +1,8 @@
 import { ReclamationService } from 'src/app/services/reclamation.service';
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { userService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-reclamation-student-form',
@@ -11,9 +13,24 @@ export class ReclamationStudentFormComponent {
   description: string = ''; // Initialiser à une chaîne vide
   
 
-  constructor(private reclamationService: ReclamationService,private authService : AuthService) { }
+  constructor(private reclamationService: ReclamationService,private authService : AuthService,private userService: userService) { }
   logout() {
     this.authService.logout();
+  }
+  user: User = {} as User;
+  getUserInformation() {
+    this.userService.retrieveUserConnected(this.userService.getToken())
+      .subscribe((res: any) => {
+        console.log('User connected:', res);
+        this.user = res;
+      }, (err: any) => {
+        console.log('Error:', err);
+      });
+  }
+  
+  ngOnInit(): void {
+   this.getUserInformation();
+  
   }
   onSubmit(): void {
     if (!this.description) {

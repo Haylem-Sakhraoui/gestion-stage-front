@@ -3,6 +3,8 @@ import { Reclamation, ReclamationWithUser, StatutReclamation } from '../../model
 import { ReclamationService } from '../../services/reclamation.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/User';
+import { userService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-reclamation-form',
@@ -27,16 +29,28 @@ export class ReclamationFormComponent {
     // Initialize other properties as needed
   };
 
-  constructor(private reclamationService: ReclamationService,  private authService : AuthService, private router: Router) {
+  constructor(private reclamationService: ReclamationService,  private authService : AuthService, private router: Router, private userService : userService) {
 
+  }
+  user: User = {} as User;
+  getUserInformation() {
+    this.userService.retrieveUserConnected(this.userService.getToken())
+      .subscribe((res: any) => {
+        console.log('User connected:', res);
+        this.user = res;
+      }, (err: any) => {
+        console.log('Error:', err);
+      });
+  }
+  
+  ngOnInit(): void {
+   this.getUserInformation();
+  
   }
   logout() {
     this.authService.logout();
   }
-  // Dans ReclamationFormComponent
-isNotAdmin(): boolean {
-  return !this.authService.roleMatch(['Admin']);
-}
+
 
   onSubmit() {
     this.reclamationService.addReclamation(this.reclamation).subscribe(

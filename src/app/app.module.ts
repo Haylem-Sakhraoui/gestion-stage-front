@@ -26,6 +26,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { SettingComponent } from './services/setting/setting.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ReclamationStudentFormComponent } from './reclamationmanagement/reclamation-student-form/reclamation-student-form.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ReclamationStudentFormComponent } from './reclamationmanagement/reclama
     SettingComponent,
     ForgetPasswordComponent,
     ReclamationStudentFormComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,

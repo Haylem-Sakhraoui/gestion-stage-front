@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { ReclamationService } from 'src/app/services/reclamation.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { userService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-retrieve-claim',
@@ -22,7 +24,8 @@ export class RetrieveClaimComponent implements OnInit {
     private reclamationService: ReclamationService,
     private router: Router,
     private activated: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService:userService
   ) {}
   logout() {
     this.authService.logout();
@@ -51,6 +54,19 @@ export class RetrieveClaimComponent implements OnInit {
         this.router.navigate(['/error']);
       }
     });
+    
+   this.getUserInformation();
+  }
+  
+  user: User = {} as User;
+  getUserInformation() {
+    this.userService.retrieveUserConnected(this.userService.getToken())
+      .subscribe((res: any) => {
+        console.log('User connected:', res);
+        this.user = res;
+      }, (err: any) => {
+        console.log('Error:', err);
+      });
   }
 
   getStatus(statutReclamation: any): void {

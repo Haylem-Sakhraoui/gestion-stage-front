@@ -5,6 +5,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Reclamation, StatutReclamation } from 'src/app/models/reclamation';
+import { userService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-reclamation',
@@ -38,15 +40,27 @@ export class ReclamationComponent implements OnInit {
   };
   
 
-  constructor(private reclamationService: ReclamationService,private authService: AuthService, private fb: FormBuilder, private router: Router) {}
+  constructor(private userService : userService, private reclamationService: ReclamationService,private authService: AuthService, private fb: FormBuilder, private router: Router) {}
   logout() {
     this.authService.logout();
   }
   ngOnInit() {
     this.getAllReclamations();
     this.loadReclamations();
+    
+   this.getUserInformation();
   }
-  loadReclamations(): void {
+  user: User = {} as User;
+  getUserInformation() {
+    this.userService.retrieveUserConnected(this.userService.getToken())
+      .subscribe((res: any) => {
+        console.log('User connected:', res);
+        this.user = res;
+      }, (err: any) => {
+        console.log('Error:', err);
+      });
+  }
+   loadReclamations(): void {
     if (this.selectedStatut) {
       this.reclamationService.getReclamationsByStatut(this.selectedStatut).subscribe(
         (reclamations) => {

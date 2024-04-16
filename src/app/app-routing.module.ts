@@ -22,6 +22,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { SettingComponent } from './services/setting/setting.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ReclamationStudentFormComponent } from './reclamationmanagement/reclamation-student-form/reclamation-student-form.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 const routes: Routes = [
@@ -47,8 +48,8 @@ const routes: Routes = [
   { path: 'administration', component: AdministrationComponent, canActivate: [authGuard] },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'setting', component: SettingComponent , canActivate: [authGuard] },
-  { path: 'forget-password', component: ForgetPasswordComponent }
-
+  { path: 'forget-password', component: ForgetPasswordComponent },
+  { path: 'chat', component: ChatComponent }
 
 ];
 
