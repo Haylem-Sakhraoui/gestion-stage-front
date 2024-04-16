@@ -76,67 +76,66 @@
   
   
 
-  <!-- reclamation.component.html -->
-  <div class="container mt-4">
+  <div class="container mt-5">
     <div class="row">
-      <div class="col-md-4">
-        <label for="statutFilter">Filter by Statut:</label>
-        <select id="statutFilter" class="form-control" [(ngModel)]="selectedStatut" (change)="filterByStatut($event)">
-          <option value="" selected>All</option>
-          <option *ngFor="let statut of statutValues" [value]="statut">{{ statut }}</option>
-        </select>
+      <div class="col-md-8">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search with email or status..."
+            id="email"
+            autocomplete="off"
+            [(ngModel)]="filtername" 
+          />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Search</button>
+          </div>
+        </div>
+        <p>{{filtername}}</p>
       </div>
     </div>
-  
-    <div class="table-responsive mt-4">
-      <table class="table table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Date</th>
-            <th scope="col">Description</th>
-            <th scope="col">Statut Reclamation</th>
-            <th scope="col">Firstname</th>
-            <th scope="col">Lastname</th>
-            <th scope="col">Email</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let ReclamationItem of reclamationArray">
-            <th scope="row">{{ ReclamationItem.idReclamation }}</th>
-            <td>{{ ReclamationItem.dateCreation | date: 'short' }}</td>
-            <td>{{ ReclamationItem.description }}</td>
-            <td>
-              <span [ngClass]="{'badge badge-info': ReclamationItem.statutReclamation === 'EN_ATTENTE',
-                                'badge badge-warning': ReclamationItem.statutReclamation === 'EN_COURS',
-                                'badge badge-success': ReclamationItem.statutReclamation === 'RESOLUE'}">
-                {{ ReclamationItem.statutReclamation }}
-              </span>
-            </td>
-            <td>{{ ReclamationItem.firstname }}</td>
-            <td>{{ ReclamationItem.lastname }}</td>
-            <td>{{ ReclamationItem.email }}</td>
-            <td>
-              <button type="button" class="btn btn-primary btn-details"
-                (click)="getDetail(ReclamationItem.idReclamation)">Details</button>
-              <button type="button" class="btn btn-danger btn-details ml-2"
-                (click)="deleteReclamation(ReclamationItem.idReclamation)">Supprimer</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <!-- Pagination -->
-    <nav aria-label="..." *ngIf="reclamationArray && reclamationArray.length > 0">
-      <ul class="pagination justify-content-center">
-        <li class="page-item"><a class="page-link" (click)="setPreviousPage($event)">Previous</a></li>
-        <li class="page-item" *ngFor="let p of pages; let i = index" [ngClass]="{'active': i === page}">
-          <a class="page-link" href="" (click)="setPage(i, $event)">{{ i + 1 }}</a>
-        </li>
-        <li class="page-item"><a class="page-link" (click)="setNextPage($event)">Next</a></li>
-      </ul>
-    </nav>
   </div>
-</body>  
+  
+  <div class="table-responsive mt-4">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Date</th>
+          <th scope="col">Description</th>
+          <th scope="col">Statut Reclamation</th>
+          <th scope="col">Firstname</th>
+          <th scope="col">Lastname</th>
+          <th scope="col">Email</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ReclamationItem of reclamationArray | filterpipe :  filtername">
+          <th scope="row">{{ ReclamationItem.idReclamation }}</th>
+          <td>{{ ReclamationItem.dateCreation | date: 'short' }}</td>
+          <td>{{ ReclamationItem.description }}</td>
+          <td>
+            <span [ngClass]="{'badge badge-info': ReclamationItem.statutReclamation === 'EN_ATTENTE',
+                              'badge badge-warning': ReclamationItem.statutReclamation === 'EN_COURS',
+                              'badge badge-success': ReclamationItem.statutReclamation === 'RESOLUE'}">
+              {{ ReclamationItem.statutReclamation }}
+            </span>
+          </td>
+          <td>{{ ReclamationItem.firstname }}</td>
+          <td>{{ ReclamationItem.lastname }}</td>
+          <td>{{ ReclamationItem.email }}</td>
+          <td>
+            <button type="button" class="btn btn-primary btn-details"
+              (click)="getDetail(ReclamationItem.idReclamation)">Details</button>
+            <button type="button" class="btn btn-danger btn-details ml-2"
+              (click)="deleteReclamation(ReclamationItem.idReclamation)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+ 
+</body>

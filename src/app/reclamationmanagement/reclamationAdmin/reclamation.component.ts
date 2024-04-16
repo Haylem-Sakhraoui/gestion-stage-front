@@ -14,14 +14,9 @@ import { User } from 'src/app/models/User';
   styleUrls: ['./reclamation.component.css']
 })
 export class ReclamationComponent implements OnInit {
+ filtername:string = '';
   reclamationArray: any;
-  pages: Array<number> = [];
-  itemsPerPage: number = 5;
-  totalPages: number = 0;
-  sortCriteria: number = 0;
-  showNoItems: boolean = false;
-  page: number = 0; // declare the 'page' property
-  filter: boolean = false; 
+ 
   
   selectedStatut: StatutReclamation | null = null;
 
@@ -123,60 +118,6 @@ export class ReclamationComponent implements OnInit {
         addForm.reset();
       }
     );
-  }
-
-  // ... (your existing code)
-  selectedCriteria(event :any){
-    this.showNoItems =false;
-    this.filter = true;
-    this.page = 0 ;
-    this.sortCriteria = event.target.value ;
-    this.getFilteredClaims();
-    console.log("event",event.target.value);
-  }
-
-  getFilteredClaims(){
-      this.reclamationService.filteredClaimsByProject(this.sortCriteria,this.page).subscribe((res:any)=>{
-        this.reclamationArray = res.content;
-        this.pages =new Array(res.totalPages);
-        if(this.reclamationArray.length == 0){
-          this.showNoItems =true;
-        }
-      })
-  }
-
-  setPage(i:any , event:any){
-    event.preventDefault();
-    this.page = i;
-    if(this.filter){
-      this.getFilteredClaims()
-    }else{
-      this.getAllReclamations();
-    }
-
-  }
-  setNextPage(event:any){
-    if(this.page < this.pages.length -1){
-      event.preventDefault();
-      this.page = this.page +1 ;
-      if(this.filter){
-        this.getFilteredClaims()
-      }else{
-        this.getAllReclamations();
-      }
-    }
-  }
-
-  setPreviousPage(event:any){
-    if(this.page > 0){
-      event.preventDefault();
-      this.page = this.page -1 ;
-      if(this.filter){
-        this.getFilteredClaims()
-      }else{
-        this.getAllReclamations();
-      }
-    }
   }
 
   getDetail(idReclamation: any): void {
