@@ -28,6 +28,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { ReclamationStudentFormComponent } from './reclamationmanagement/reclamation-student-form/reclamation-student-form.component';
 import { ChatComponent } from './chat/chat.component';
 import { FilterpipePipe } from './services/filterpipe/filterpipe.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { FilterpipePipe } from './services/filterpipe/filterpipe.pipe';
     NgbModule,
     CommonModule,
     ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [ReclamationService],
   bootstrap: [AppComponent],

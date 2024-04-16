@@ -16,8 +16,9 @@ import { User } from 'src/app/models/User';
 export class ReclamationComponent implements OnInit {
  filtername:string = '';
   reclamationArray: any;
- 
-  
+ p:number = 1;
+ itemsPerPage:number = 5;
+ totalReclamation:any;
   selectedStatut: StatutReclamation | null = null;
 
   statutValues: StatutReclamation[] = Object.values(StatutReclamation)
@@ -98,7 +99,7 @@ export class ReclamationComponent implements OnInit {
     this.reclamationService.getAllReclamations().subscribe(
       (response: Reclamation[]) => {
         this.reclamationArray = response;
-       
+        this.totalReclamation = this.reclamationArray.length; // Met à jour le total des réclamations
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -106,19 +107,6 @@ export class ReclamationComponent implements OnInit {
     );
   }
 
-  public onAddReclamation(addForm: NgForm): void {
-    this.reclamationService.addReclamation(addForm.value).subscribe(
-      (response: Reclamation) => {
-        console.log(response);
-        this.getAllReclamations();
-        addForm.reset();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-        addForm.reset();
-      }
-    );
-  }
 
   getDetail(idReclamation: any): void {
     console.log("idReclamation", idReclamation);
