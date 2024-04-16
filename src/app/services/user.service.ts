@@ -4,6 +4,7 @@ import { User } from '../models/User';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
+import { Userstat } from '../models/userStat';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,9 @@ export class userService {
 
   }
 
-
+public getUserStatistics(){
+  return this.httpClient.get<Userstat[]>(this.baseUrl + "/stat");
+}
   public disableUser(email: string) {
     const body = { email: email }
     return this.httpClient.put(this.baseUrl+ "/disableUser", body);
