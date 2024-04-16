@@ -1,146 +1,148 @@
 
-  <body>
+<body>
 
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
+  <!-- ***** Preloader Start ***** -->
+  <div id="preloader">
+      <div class="jumper">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+  </div>  
+  <!-- ***** Preloader End ***** -->
+
+  <!-- Header -->
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-xs-12">
+          <ul class="left-info">
+            <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
+            <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
+          </ul>
         </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-
-    <!-- Header -->
-    <div class="sub-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-xs-12">
-            <ul class="left-info">
-              <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
-              <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="right-icons">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"><i class="fa fa-behance"></i></a></li>
-            </ul>
-          </div>
+        <div class="col-md-4">
+          <ul class="right-icons">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+          </ul>
         </div>
       </div>
+    </div>
+  </div>
+  
+  <header class="">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/accueil"><h2>Esprit Stage </h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/accueil">Accueil
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+             
+            <li class="nav-item">
+              <a class="nav-link" href="/demande">demande de stage </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/affectation">lettre d'affectation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- Page Content -->
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Demande de stage </h1>
+          <span>We are over 20 years of experience</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="callback-form">
+    <div class="section-heading">
+      <h2>Demande de stage </h2>
     </div>
     
-    <header class="">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="/accueil"><h2>Esprit Stage </h2></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/accueil">Accueil
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-               
-              <li class="nav-item">
-                <a class="nav-link" href="/demande">demande de stage </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/affectation">lettre d'affectation</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/reclamation">Reclamation </a>
-              </li>
-            </ul>
+  <form (ngSubmit)="saveData()" #demandeForm="ngForm" id="stage-request-form" action="process_stage_request.php" method="post">
+      <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+              <fieldset>
+                  <input name="studentLastName" type="text" class="form-control" id="studentLastName" placeholder="studentLastName" [(ngModel)]="demande.studentLastName" required>
+              </fieldset>
           </div>
-        </div>
-      </nav>
-    </header>
-
-
-    <!-- Page Content -->
-    <div class="page-heading header-text">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1>Demande de stage </h1>
-            <span>We are over 20 years of experience</span>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+              <fieldset>
+                  <input name="studentFirstName" type="text" class="form-control" id="studentFirstName" placeholder="studentFirstName"[(ngModel)]="demande.studentFirstName" required>
+              </fieldset>
           </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+              <fieldset>
+                  <input name="classGrade" type="text" class="form-control" id="classGrade" placeholder="classGrade"[(ngModel)]="demande.classGrade" required>
+              </fieldset>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+              <fieldset>
+                  <input name="studentEmail" type="email" class="form-control" id="companyName" pattern="[^@]*@[^@]*" placeholder="studentEmail"[(ngModel)]="demande.studentEmail" required>
+              </fieldset>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+              <fieldset>
+                  <input name="companyName" type="text" class="form-control" id="companyName"  placeholder="companyName" [(ngModel)]="demande.companyName" required>
+              </fieldset>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+              <fieldset>
+                  <input name="supervisorName"  class="form-control" id="supervisorName" placeholder="supervisorName" [(ngModel)]="demande.supervisorName"required>
+              </fieldset>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <fieldset>
+                <input name="supervisorEmail" type="email" class="form-control" id="supervisorEmail" pattern="[^@]*@[^@]*" placeholder="supervisorEmail"[(ngModel)]="demande.supervisorEmail" required>
+            </fieldset>
         </div>
+          <div class="col-lg-12">
+              <fieldset>
+                  <button type="submit" id="form-submit" class="filled-button">Envoyer la demande</button>
+              </fieldset>
+          </div>
       </div>
-    </div>
-
+  </form>
   
-    <div class="callback-form">
-      <div class="section-heading">
-        <h2>Demande de stage </h2>
-      </div>
-      
-      <form id="stage-request-form" action="process_stage_request.php" method="post">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <fieldset>
-                    <input name="firstname" type="text" class="form-control" id="firstname" placeholder="Prénom" required>
-                </fieldset>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <fieldset>
-                    <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Nom de famille" required>
-                </fieldset>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <fieldset>
-                    <input name="classe" type="text" class="form-control" id="classe" placeholder="Classe" required>
-                </fieldset>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <fieldset>
-                    <input name="companyName" type="text" class="form-control" id="companyName" placeholder="Nom de l'entreprise" required>
-                </fieldset>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <fieldset>
-                    <input name="emailCompany" type="email" class="form-control" id="emailCompany" pattern="[^@]*@[^@]*" placeholder="Email de l'entreprise" required>
-                </fieldset>
-            </div>
-            <div class="col-lg-12">
-                <fieldset>
-                    <textarea name="adresseCompany"  class="form-control" id="adresseCompany" placeholder="Adresse de l'entreprise" required></textarea>
-                </fieldset>
-            </div>
-            <div class="col-lg-12">
-                <fieldset>
-                    <button type="submit" id="form-submit" class="filled-button">Envoyer la demande</button>
-                </fieldset>
-            </div>
-        </div>
-    </form>
-    
-    </div>
+  </div>
 
-    <div class="partners">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="owl-partners owl-carousel">
-              <div class="partner-item">
-                <img src="assets/images/client-01.png" alt="">
-              </div>
+  <div class="partners">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="owl-partners owl-carousel">
+            <div class="partner-item">
+              <img src="assets/images/client-01.png" alt="">
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 
-   
+ 
 
-  
 
-  </body>
+
+</body>

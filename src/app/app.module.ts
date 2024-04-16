@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AccueilComponent } from './accueil/accueil.component';
 import { AproposComponent } from './apropos/apropos.component';
@@ -15,6 +13,11 @@ import { DepotComponent } from './depot/depot.component';
 import { JournalComponent } from './journal/journal.component';
 import { AffectationComponent } from './affectation/affectation.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { GrilleComponent } from './grille/grille.component';
 
 
 
@@ -24,13 +27,14 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
     AppComponent,
     AccueilComponent,
     AproposComponent, 
-     InscriptionComponent, ConnecterComponent, ConventionComponent, DemandeComponent, DepotComponent, JournalComponent, AffectationComponent, ReclamationComponent,
+     InscriptionComponent, ConnecterComponent, ConventionComponent, DemandeComponent, DepotComponent, JournalComponent, AffectationComponent, ReclamationComponent, GrilleComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-   
-       
+    FormsModule,
+    HttpClientModule // Déplacer HttpClientModule vers la section 'imports'
+
   ],
   providers: [],
   bootstrap: [AppComponent]

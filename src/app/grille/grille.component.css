@@ -1,0 +1,57 @@
+/* Style pour la page d'en-tête */
+.page-heading {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+  }
+  
+  .page-heading h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .page-heading span {
+    font-size: 18px;
+    color: #6c757d;
+  }
+  
+  /* Style pour le tableau */
+  .container {
+    margin-top: 30px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6;
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .table th {
+    background-color: #343a40;
+    color: #fff;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+  }
+  
+  /* Style pour les partenaires */
+  .partners {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+  }
+  
+  .partner-item img {
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+    margin: 0 auto;
+  }
+  

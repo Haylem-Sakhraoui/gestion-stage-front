@@ -1,171 +1,211 @@
 
 
 
-  <body>
+<body>
 
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
+  <!-- ***** Preloader Start ***** -->
+  <div id="preloader">
+      <div class="jumper">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+  </div>  
+  <!-- ***** Preloader End ***** -->
+
+  <!-- Header -->
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-xs-12">
+          <ul class="left-info">
+            <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
+            <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
+          </ul>
         </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-
-    <!-- Header -->
-    <div class="sub-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-xs-12">
-            <ul class="left-info">
-              <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
-              <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="right-icons">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"><i class="fa fa-behance"></i></a></li>
-            </ul>
-          </div>
+        <div class="col-md-4">
+          <ul class="right-icons">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+          </ul>
         </div>
       </div>
     </div>
-    
-    <header class="">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="/accueil"><h2>Esprit Stage </h2></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/accueil">Accueil
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-               
-              <li class="nav-item">
-                <a class="nav-link" href="/demande">Demande de stage </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/affectation">Lettre d'affectation</a>
-              </li>
-              
-              <li class="nav-item">
-                <a class="nav-link" href="/convention">Convention de stage </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/journal">Journal de stage </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/reclamation">Reclamation </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-
-    <!-- Page Content -->
-    <div class="page-heading header-text">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1>Convention de stage </h1>
-            <span>We are over 20 years of experience</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
+  </div>
   
-    <div class="callback-form">
-      <div class="section-heading">
-        <h2>Convention de stage </h2>
-      </div>
-      <form id="placement-letter-form" action="process_placement_letter.php" method="post">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-          
-                  <div>  <input name="firstname" type="text" class="form-control" id="firstname" placeholder="Nom de l'étudiant" required>
-                  </div>
-                <div class="form-group col-md-4">
-                    <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Prenom  de l'étudiant" required>
-                </div>
-                
-                <div class="form-group col-md-4">
-                    <input  name="dateOfBirth"  type="date" class="form-control" id="dateOfBirth" placeholder="Date de naissance de l'étudiant" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <input name="class" type="text" class="form-control" id="class" placeholder="Classe" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <input name="companyName" type="text" class="form-control" id="companyName" placeholder="Nom de l'entreprise" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <input name="emailCompany" type="email" class="form-control" id="emailCompany" pattern="[^@]*@[^@]*" placeholder="Email de l'entreprise" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <input name="phoneCompany" type="tel" class="form-control" id="phoneCompany" placeholder="Téléphone de l'entreprise" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <select name="internshipType" class="form-control" id="internshipType" required>
-                        <option value="" disabled selected>Type de stage</option>
-                        <option value="stage de formation humaine et sociale">Stage de formation humaine et sociale</option>
-                        <option value="stage d'immersion d'entreprise">Stage d'immersion d'entreprise</option>
-                        <option value="stage ingénieur">Stage ingénieur</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-6">
-                    <input name="startDate" type="date" class="form-control" id="startDate" placeholder="Date de début du stage" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <input name="endDate" type="date" class="form-control" id="endDate" placeholder="Date de fin du stage" required>
-                </div>
-              
-                <div class="form-group col-md-6">
-                    <input name="supervisor" type="text" class="form-control" id="supervisor" placeholder="Superviseur" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <input name="cin" type="text" class="form-control" id="cin" placeholder="CIN du superviseur" required>
-                </div>
-                <div class="form-group col-md-6">
-                    
-                    <input name="internshipDuration" type="number" class="form-control" id="internshipDuration" placeholder="Durée de stage" required>
-                </div>
-             
-                <div class="form-group col-md-12">
-                    <button type="submit" id="form-submit" class="btn btn-primary">Envoyer la convention de stage</button>
-                </div>
-        
-      </div>
-      </div>
-      </form>
-   
-
-    <div class="partners">
+  <header class="">
+    <nav class="navbar navbar-expand-lg">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="owl-partners owl-carousel">
-              <div class="partner-item">
-                <img src="assets/images/client-01.png" alt="">
-              </div>
+        <a class="navbar-brand" href="/accueil"><h2>Esprit Stage </h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/accueil">Accueil
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+             
+            <li class="nav-item">
+              <a class="nav-link" href="/demande">Demande de stage </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/affectation">Lettre d'affectation</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/convention">Convention de stage </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/journal">Journal de stage </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- Page Content -->
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Convention de stage </h1>
+          <span>We are over 20 years of experience</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="callback-form">
+    <div class="section-heading">
+      <h2>Convention de stage</h2>
+    </div>
+    <form (ngSubmit)="saveData()" #demandeForm="ngForm" id="stage-request-form" action="process_stage_request.php" method="post">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="studentLastName">Nom de l'étudiant</label>
+            <input name="studentLastName" type="text" class="form-control" id="studentLastName" placeholder="Nom de l'étudiant" [(ngModel)]="convention.studentLastName" required>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="studentFirstName">Prénom de l'étudiant</label>
+            <input name="studentFirstName" type="text" class="form-control" id="studentFirstName" placeholder="Prénom de l'étudiant" [(ngModel)]="convention.studentFirstName" required>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="classGrade">Classe/Niveau</label>
+            <input name="classGrade" type="text" class="form-control" id="classGrade" placeholder="Classe/Niveau" [(ngModel)]="convention.classGrade" required>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="studentEmail">Email de l'étudiant</label>
+            <input name="studentEmail" type="email" class="form-control" id="studentEmail" pattern="[^@]*@[^@]*" placeholder="Email de l'étudiant" [(ngModel)]="convention.studentEmail" required>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="dateOfBirth">Date de naissance</label>
+            <input name="dateOfBirth" type="date" class="form-control" id="dateOfBirth" placeholder="Date de naissance" [(ngModel)]="convention.dateOfBirth" required>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="studentIdNumber">Numéro d'identification de l'étudiant</label>
+            <input name="studentIdNumber" type="text" class="form-control" id="studentIdNumber" placeholder="Numéro d'identification de l'étudiant" [(ngModel)]="convention.studentIdNumber" required>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="companyName">Nom de l'entreprise</label>
+            <input name="companyName" type="text" class="form-control" id="companyName" placeholder="Nom de l'entreprise" [(ngModel)]="convention.companyName" required>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="supervisorEmail">Email du superviseur</label>
+            <input name="supervisorEmail" type="text" class="form-control" id="supervisorEmail" pattern="[^@]*@[^@]*" placeholder="Email du superviseur" [(ngModel)]="convention.supervisorEmail" required>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="supervisorName">Nom du superviseur</label>
+            <input name="supervisorName" type="text" class="form-control" id="supervisorName" placeholder="Nom du superviseur" [(ngModel)]="convention.supervisorName" required>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="companyAddress">Adresse de l'entreprise</label>
+            <input name="companyAddress" type="text" class="form-control" id="companyAddress" placeholder="Adresse de l'entreprise" [(ngModel)]="convention.companyAddress" required>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="stageType">Type de stage</label>
+            
+              <select name="stageType" class="custom-select" id="stageType" [(ngModel)]="convention.stageType" required>
+                <option value="" disabled selected hidden>Type de stage</option>
+                <optgroup label="Type de stage">
+                  <option value="HUMAN_AND_SOCIAL_TRAINING_INTERNSHIP">Stage de formation humaine et sociale</option>
+                  <option value="COMPANY_IMMERSION_INTERNSHIP">Stage d'immersion en entreprise</option>
+                  <option value="ENGINEERING_INTERNSHIP">Stage d'ingénieur</option>
+                </optgroup>
+              </select>
+            </fieldset>
+          
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="internshipDuration">Durée du stage</label>
+            <input name="internshipDuration" type="text" class="form-control" id="internshipDuration" placeholder="Durée du stage" [(ngModel)]="convention.internshipDuration" required>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="startDate">Date de début</label>
+            <input name="startDate" type="date" class="form-control" id="startDate" placeholder="Date de début" [(ngModel)]="convention.startDate" required>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <fieldset>
+            <label for="endDate">Date de fin</label>
+            <input name="endDate" type="date" class="form-control" id="endDate" placeholder="Date de fin" [(ngModel)]="convention.endDate" required>
+          </fieldset>
+        </div>
+        
+        <div class="col-lg-12">
+          <fieldset>
+            <button type="submit" id="form-submit" class="filled-button">Envoyer la lettre d'affectation</button>
+          </fieldset>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+ 
+
+  <div class="partners">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="owl-partners owl-carousel">
+            <div class="partner-item">
+              <img src="assets/images/client-01.png" alt="">
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 
-  
-
-</div>
-  </body>

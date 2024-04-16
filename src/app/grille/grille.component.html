@@ -1,10 +1,4 @@
-
-
-  
-
-
-
-  <body>
+<body>
 
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
@@ -15,7 +9,7 @@
         </div>
     </div>  
     <!-- ***** Preloader End ***** -->
-
+  
     <!-- Header -->
     <div class="sub-header">
       <div class="container">
@@ -71,64 +65,69 @@
         </div>
       </nav>
     </header>
-
-
+  
+  
     <!-- Page Content -->
     <div class="page-heading header-text">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>Deposer </h1>
+            <h1>Grille d'évaluation</h1>
             <span>We are over 20 years of experience</span>
           </div>
         </div>
       </div>
     </div>
-
-  
-    <div class="callback-form">
-      <div class="section-heading">
-        <h2>Déposer</h2>
-      </div>
-      <form id="internship-agreement-form" (ngSubmit)="saveData()" class="custom-form" enctype="multipart/form-data">
-        <div class="form-row">
-          <div class="form-group col-lg-6 col-md-6 col-sm-12">
-            <label for="report">Titre de rapport de stage:</label>
-            <input name="report" [(ngModel)]="depot.report" class="form-control" id="report" placeholder="Rapport" required>
+        <div class="callback-form">
+          <div class="section-heading">
+            <h2>Grille d'évaluation</h2>
           </div>
-          <div class="form-group col-lg-6 col-md-6 col-sm-12">
-            <label for="pdfFile">Rapport de stage (PDF) :</label>
-            <input name="file" type="file" accept="application/pdf" class="form-control-file" id="pdfFile" (change)="handleFileInput($event)" required>
           </div>
-        </div>
-        <div class="form-group col-lg-12">
-          <button type="submit" id="form-submit" class="btn btn-primary">Envoyer</button>
-        </div>
-      </form>
-      <div *ngIf="depot.plagiarismScore !== undefined">
-        <h4>Score de plagiat: {{ depot.plagiarismScore }}</h4>
-      </div>
-    </div>
-   
-    
-
-  <div class="partners">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="owl-partners owl-carousel">
-            <div class="partner-item">
-              <img src="assets/images/client-01.png" alt="">
+          <div class="container">
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Tache</th>
+                    <th>Satisfaction</th>
+                  </tr>
+                </thead>
+              
+                  <ng-container *ngIf="Grilles.length > 0; else noGrilles">
+                    <tr *ngFor="let Grille of Grilles">
+                      <td>{{ Grille.tacheType }}</td>
+                      <td>{{ Grille.satisfactionType }}</td>
+                    </tr>
+                  </ng-container>
+                  <ng-template #noGrilles>
+                    <tr>
+                      <td colspan="2">Aucune grille trouvée</td>
+                    </tr>
+                  </ng-template>
+                
+              </table>
+              <div *ngIf="globalNote !== 0">
+                <h4 >Note d'evaluation globale : {{ globalNote }}</h4>
+              </div>
+            </div>
+          </div>
+         
+        
+        <div class="partners">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="owl-partners owl-carousel">
+                  <div class="partner-item">
+                    <img src="assets/images/client-01.png" alt="">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
+  
+  
+  
+       
+  
