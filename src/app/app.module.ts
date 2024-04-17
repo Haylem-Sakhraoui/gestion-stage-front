@@ -28,8 +28,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { AdministrationComponent } from './admin/administration/administration.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { SettingComponent } from './services/setting/setting.component';
+import { SettingComponent } from './setting/setting.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -48,6 +50,14 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     DepotComponent,
     JournalComponent,
     AffectationComponent,
+    ReclamationComponent, 
+    UserListComponent, 
+    AdministrationComponent, 
+    ResetPasswordComponent, 
+    SettingComponent, 
+    ForgetPasswordComponent, 
+    StatisticsComponent,
+
     ReclamationComponent, UserListComponent, AdministrationComponent, ResetPasswordComponent, SettingComponent, ForgetPasswordComponent,
 
 
@@ -58,7 +68,6 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     // Remove ReclamationComponent from declarations
 
     ReclamationComponent, UserListComponent, AdministrationComponent, ResetPasswordComponent, SettingComponent,
-
 
   ],
   imports: [
@@ -76,7 +85,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
   bootstrap: [AppComponent],
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgChartsModule
 
 
   ],

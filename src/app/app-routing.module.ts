@@ -19,7 +19,7 @@ import { UserListComponent } from './admin/user-list/user-list.component';
 import { authGuard } from './services/auth/auth.guard.service';
 import { AdministrationComponent } from './admin/administration/administration.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { SettingComponent } from './services/setting/setting.component';
+import { SettingComponent } from './setting/setting.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 
