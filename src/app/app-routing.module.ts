@@ -44,7 +44,7 @@ const routes: Routes = [
   {path: 'retrieveClaim/:id', component: RetrieveClaimComponent},
 
   { path: 'userlist', component: UserListComponent, canActivate: [authGuard] },
-  { path: 'reclamation', component: ReclamationComponent },
+  
   { path: 'administration', component: AdministrationComponent, canActivate: [authGuard] },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'setting', component: SettingComponent , canActivate: [authGuard] },

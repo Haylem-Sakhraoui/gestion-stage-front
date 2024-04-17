@@ -29,6 +29,8 @@ import { ReclamationStudentFormComponent } from './reclamationmanagement/reclama
 import { ChatComponent } from './chat/chat.component';
 import { FilterpipePipe } from './services/filterpipe/filterpipe.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReclamationStudentFormComponent,
     ChatComponent,
     FilterpipePipe,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

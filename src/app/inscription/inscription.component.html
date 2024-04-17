@@ -1,59 +1,6 @@
 <body>
 
-  <!-- Header -->
-  <div class="sub-header">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-8 col-xs-12">
-                  <ul class="left-info">
-                      <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
-                      <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
-                  </ul>
-              </div>
-              <div class="col-md-4">
-                  <ul class="right-icons">
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                      <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <header class="">
-      <nav class="navbar navbar-expand-lg">
-          <div class="container">
-              <a class="navbar-brand" href="/accueil">
-                  <h2>Esprit Stage </h2>
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                  aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarResponsive">
-                  <ul class="navbar-nav ml-auto">
-                      <li class="nav-item active">
-                          <a class="nav-link" routerLink="/accueil">Accueil
-                              <span class="sr-only">(current)</span>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" routerLink="/inscription">create user </a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" routerLink="/userlist">User List </a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" routerLink="/reclamation">Reclamation</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
-  </header>
-
+<app-header></app-header>
   <!-- Page Content -->
   <div class="page-heading header-text">
       <div class="container">
@@ -116,18 +63,10 @@
           </div>
       </div>
   </div>
-
-  <div class="partners">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12">
-                  <div class="owl-partners owl-carousel">
-                      <div class="partner-item">
-                          <img src="assets/images/client-01.png" alt="">
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+  <!-- jQuery, Popper.js, Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <app-footer></app-footer>
 </body>

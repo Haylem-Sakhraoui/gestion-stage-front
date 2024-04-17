@@ -17,7 +17,7 @@ export class ReclamationComponent implements OnInit {
  filtername:string = '';
   reclamationArray: any;
  p:number = 1;
- itemsPerPage:number = 5;
+ itemsPerPage:number = 10;
  totalReclamation:any;
   selectedStatut: StatutReclamation | null = null;
 
@@ -37,9 +37,7 @@ export class ReclamationComponent implements OnInit {
   
 
   constructor(private userService : userService, private reclamationService: ReclamationService,private authService: AuthService, private fb: FormBuilder, private router: Router) {}
-  logout() {
-    this.authService.logout();
-  }
+ 
   ngOnInit() {
     this.getAllReclamations();
     this.loadReclamations();

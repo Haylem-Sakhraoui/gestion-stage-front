@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../../models/User';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
-import { Observable, catchError, map } from 'rxjs';
+import { Observable, catchError, map, tap } from 'rxjs';
 import { of } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 
@@ -97,19 +97,16 @@ export class AuthService {
   }
   
 
-  public retrieveUserConnected(token: string):void {
-    const header= new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    const user = this.httpClient.get(`${this.baseUrl}/currentUser`,{
-      headers:header
-    }).subscribe((user: any) => {
-
-      this.User = user;
-      console.log("retrieve User connected ", user);
-    });
-
-   console.log(user)
-
-    
+  public retrieveUserConnected(token: string): Observable<any> {
+    const header = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.httpClient.get(`${this.baseUrl}/currentUser`, {
+      headers: header
+    }).pipe(
+      tap((user: any) => {
+        this.User = user;
+        console.log("retrieve User connected ", user);
+      })
+    );
   }
   isAuthenticated(): Observable<boolean> {
     const token = localStorage.getItem('token');

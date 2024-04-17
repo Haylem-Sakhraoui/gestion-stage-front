@@ -32,6 +32,7 @@ export class ReclamationFormComponent {
   constructor(private reclamationService: ReclamationService,  private authService : AuthService, private router: Router, private userService : userService) {
 
   }
+  
   user: User = {} as User;
   getUserInformation() {
     this.userService.retrieveUserConnected(this.userService.getToken())
@@ -47,9 +48,6 @@ export class ReclamationFormComponent {
    this.getUserInformation();
   
   }
-  logout() {
-    this.authService.logout();
-  }
 
 
   onSubmit() {
@@ -57,7 +55,8 @@ export class ReclamationFormComponent {
       (response) => {
         console.log('Reclamation added successfully:', response);
         // Handle success, e.g., show a success message, navigate to another page, etc.
-        this.resetForm();
+       // this.resetForm();
+       this.router.navigate(['/reclamation']);
       },
       (error) => {
         console.error('Failed to add reclamation:', error);
@@ -66,21 +65,5 @@ export class ReclamationFormComponent {
     );
   }
 
-  resetForm() {
-    this.reclamation = {
-      idReclamation: 0,
-      dateCreation: new Date(),
-      statutReclamation: StatutReclamation.EnAttente,
-   
-        firstname: '',
-        lastname: '',
-        email: '',
-        iduser: 0,
-      
-      description: '',
-      
-      // Initialize other properties as needed
-    };
-  }
   
 }
