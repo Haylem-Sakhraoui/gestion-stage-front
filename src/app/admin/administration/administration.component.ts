@@ -18,12 +18,25 @@ export class AdministrationComponent {
     this.getsupervisorList();
     this.getserviceList();
     
+   this.getUserInformation();
+    
   }
 
   studentList: User[] = []; 
   serviceList: User[] = []; 
   supervisorList: User[] = []; 
-
+  user: User = {} as User;
+  getUserInformation() {
+    this.userService.retrieveUserConnected(this.userService.getToken())
+      .subscribe((res: any) => {
+        console.log('User connected:', res);
+        this.user = res;
+      }, (err: any) => {
+        console.log('Error:', err);
+      });
+  }
+  
+  
   getstudentList(): void {
     this.userService.retrieveStudents()
     .subscribe(

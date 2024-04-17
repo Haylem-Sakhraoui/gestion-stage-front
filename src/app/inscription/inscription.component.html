@@ -1,6 +1,6 @@
-
 <body>
 
+<app-header></app-header>
   <!-- Header -->
   <div class="sub-header">
       <div class="container">
@@ -53,7 +53,6 @@
     </nav>
   </header>
   
-
   <!-- Page Content -->
   <div class="page-heading header-text">
       <div class="container">
@@ -64,6 +63,64 @@
           </div>
       </div>
   </div>
+
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <form (ngSubmit)="addUser()" [formGroup]="registerRequest">
+              <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" id="firstname" formControlName="firstname" [required]="true">
+              </div>
+              <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" id="lastname" formControlName="lastname" [required]="true">
+              </div>
+              <div class="form-group" *ngIf="f['role'].value === 'STUDENT'">
+                <label for="studentClass">Student Class</label>
+                <input type="text" class="form-control" id="studentClass" formControlName="studentClass" [required]="true">
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email" [required]="true">
+                <div *ngIf="f['email'].errors && (f['email'].dirty || f['email'].touched)" class="text-danger">
+                  <div *ngIf="f['email'].errors['required']">Email is required</div>
+                  <div *ngIf="f['email'].errors['email']">Invalid email format</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" formControlName="password" [required]="true" minlength="8">
+                <div *ngIf="f['password'].errors && (f['password'].dirty || f['password'].touched)" class="text-danger">
+                  <div *ngIf="f['password'].errors['required']">Password is required</div>
+                  <div *ngIf="f['password'].errors['minlength']">Password must be at least 8 characters long</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="role">Role</label>
+                <select class="form-control" id="role" formControlName="role" [required]="true">
+                  <option value="SERVICESTAGE">SERVICESTAGE</option>
+                  <option value="STUDENT">STUDENT</option>
+                  <option value="SUPERVISOR">SUPERVISOR</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">ADD</button>
+            </form>
+            
+            
+            <div *ngIf="message" class="alert alert-dismissible alert-success mt-3">
+              {{ message }}
+            </div>
+            
+          </div>
+      </div>
+  </div>
+  <!-- jQuery, Popper.js, Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <app-footer></app-footer>
 
   <div class="container">
       <div class="row">
@@ -130,4 +187,5 @@
           </div>
       </div>
   </div>
+
 </body>
