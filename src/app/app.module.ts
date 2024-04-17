@@ -22,9 +22,7 @@ import { ReclamationComponent } from './reclamationmanagement/reclamationAdmin/r
 import { ReclamationFormComponent } from './reclamationmanagement/reclamation-form/reclamation-form.component';
 import { RetrieveClaimComponent } from './reclamationmanagement/retrieve-claim/retrieve-claim.component';
 
-import { ReclamationComponent } from './reclamation/reclamation.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { AdministrationComponent } from './admin/administration/administration.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
@@ -75,24 +73,13 @@ import { NgChartsModule } from 'ng2-charts';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    reclamation
-    NgbModule,
+    // NgbModule,
     CommonModule,
     ReactiveFormsModule,
+    NgChartsModule
     
   ],
   providers: [ReclamationService],
   bootstrap: [AppComponent],
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgChartsModule
-
-
-  ],
-  providers: [
-    HttpClient
-  ],
-  bootstrap: [AppComponent]
 })
 export class AppModule {}
