@@ -1,30 +1,15 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
-import { Demande } from './demande';
+import { TestBed } from '@angular/core/testing';
+import { RequestserviceService } from './requestservice.service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class RequestserviceService {
-  private apiUrl = 'http://localhost:8089/stage/api/request/add';
-  private emailUrl = 'http://localhost:8089/send-email';
+describe('RequestserviceService', () => {
+  let service: RequestserviceService;
 
-  constructor(private http: HttpClient) {}
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(RequestserviceService);
+  });
 
-  
-
-  saveRequest(demande: Demande): Observable<any> {
-    return this.http.post<any>(this.apiUrl, demande)
-      .pipe(
-        tap(() => {
-          this.sendEmail().subscribe(
-            () => console.log('Email sent successfully'), 
-            error => console.error('Error sending email:', error)
-          );
-        })
-      );}
-      private sendEmail(): Observable<any> {
-        return this.http.post<any>(this.emailUrl, {});
-      }
-}
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

@@ -42,11 +42,10 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 
   ],
   imports: [
-    BrowserModule,
     FormsModule,
+    BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgModule,
     CommonModule,
     
     
@@ -55,7 +54,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     
    
   ],
-
+  providers: [ReclamationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

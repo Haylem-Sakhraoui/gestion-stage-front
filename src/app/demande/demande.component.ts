@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Demande } from './demande';
-import { RequestserviceService } from './requestservice.service.spec';
+import { RequestserviceService } from './requestservice.service';
 
 @Component({
   selector: 'app-demande',
@@ -10,17 +10,17 @@ import { RequestserviceService } from './requestservice.service.spec';
 export class DemandeComponent implements OnInit {
   
 
-  public demande: Demande = new Demande();
+   public demande: Demande = new Demande();
 
-  constructor(private requestService: RequestserviceService) {}
+   constructor(private requestService: RequestserviceService) {}
 
-  ngOnInit(): void {}
+   ngOnInit(): void {}
 
-  public saveData(): void {
-     this.requestService.saveRequest(this.demande).subscribe((response: any) => {
-        console.log('Response from server:', response);
-     }, (error) => {
-        console.error('Error:', error);
-     });
-  }
+   public saveData(): void {
+      this.requestService.saveRequest(this.demande).subscribe((response: any) => {
+         console.log('Response from server:', response);
+      }, (error) => {
+         console.error('Error:', error);
+      });
+   }
 }

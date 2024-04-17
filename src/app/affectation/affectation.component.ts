@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Affectation } from './affectation';
-import { AffectationserviceService } from './affectationservice.service.spec';
+import { AffectationserviceService } from './affectationservice.service';
 
 @Component({
   selector: 'app-affectation',
@@ -21,3 +20,6 @@ export class AffectationComponent implements OnInit {
 }
 
 }
+
+
+

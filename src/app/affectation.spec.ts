@@ -1,4 +1,4 @@
-import { Affectation } from './affectation';
+import { Affectation } from './affectation/affectation';
 
 describe('Affectation', () => {
   it('should create an instance', () => {

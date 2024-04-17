@@ -1,4 +1,3 @@
-<p>affectation works!</p>
 
 
 
@@ -6,167 +5,167 @@
 
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
+      <div class="jumper">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+  </div>  
+  <!-- ***** Preloader End ***** -->
 
-    <!-- Header -->
-    <div class="sub-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-xs-12">
-            <ul class="left-info">
-              <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
-              <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="right-icons">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"><i class="fa fa-behance"></i></a></li>
-            </ul>
-          </div>
+  <!-- Header -->
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-xs-12">
+          <ul class="left-info">
+            <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
+            <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <ul class="right-icons">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+          </ul>
         </div>
       </div>
+    </div>
+  </div>
+  
+  <header class="">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/accueil"><h2>Esprit Stage </h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/accueil">Accueil
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+             
+            <li class="nav-item">
+              <a class="nav-link" href="/demande">Demande de stage </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/affectation">Lettre d'affectation</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/convention">Convention de stage </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- Page Content -->
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Lettre D'affetation </h1>
+          <span>We are over 20 years of experience</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="callback-form">
+<div class="section-heading">
+  <h2>Formulaire de Lettre d'Affectation</h2>
+</div>
+<form (ngSubmit)="saveData()" #affectationForm="ngForm" id="stage-request-form" action="process_stage_request.php" method="post">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <fieldset>
+        <input name="lastName" type="text" class="form-control" id="lastName" placeholder="Nom" [(ngModel)]="affectation.lastName" required>
+      </fieldset>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <fieldset>
+        <input name="firstName" type="text" class="form-control" id="firstName" placeholder="Prénom" [(ngModel)]="affectation.firstName" required>
+      </fieldset>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <fieldset>
+        <input name="classGrade" type="text" class="form-control" id="classGrade" placeholder="Classe/Niveau" [(ngModel)]="affectation.classGrade" required>
+      </fieldset>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <fieldset>
+        <input name="studentEmail" type="email" class="form-control" id="studentEmail" pattern="[^@]*@[^@]*" placeholder="Email de l'étudiant" [(ngModel)]="affectation.studentEmail" required>
+      </fieldset>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <fieldset>
+        <input name="companyName" type="text" class="form-control" id="companyName" placeholder="Nom de l'entreprise" [(ngModel)]="affectation.companyName" required>
+      </fieldset>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <fieldset>
+        <input name="companyEmail" type="email" class="form-control" id="companyEmail" pattern="[^@]*@[^@]*" placeholder="Email de l'entreprise" [(ngModel)]="affectation.companyEmail" required>
+      </fieldset>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <fieldset>
+        <select name="stageType" class="custom-select" id="stageType" [(ngModel)]="affectation.stageType" required>
+          <option value="" disabled selected hidden>Type de stage</option>
+          <optgroup label="Type de stage">
+            <option value="HUMAN_AND_SOCIAL_TRAINING_INTERNSHIP">Stage de formation humaine et sociale</option>
+            <option value="COMPANY_IMMERSION_INTERNSHIP">Stage d'immersion en entreprise</option>
+            <option value="ENGINEERING_INTERNSHIP">Stage d'ingénieur</option>
+          </optgroup>
+        </select>
+      </fieldset>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <fieldset>
+        <input name="telephoneNumber" type="text" class="form-control" id="telephoneNumber" placeholder="Numéro de téléphone" [(ngModel)]="affectation.telephoneNumber" required>
+      </fieldset>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <fieldset>
+        <label for="startDate">Date de début</label>
+        <input name="startDate" type="date" class="form-control" id="startDate" placeholder="Date de début" [(ngModel)]="affectation.startDate" required>
+      </fieldset>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <fieldset>
+        <label for="endDate">Date de fin</label>
+        <input name="endDate" type="date" class="form-control" id="endDate" placeholder="Date de fin" [(ngModel)]="affectation.endDate" required>
+      </fieldset>
     </div>
     
-    <header class="">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="/accueil"><h2>Esprit Stage </h2></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/accueil">Accueil
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-               
-              <li class="nav-item">
-                <a class="nav-link" href="/demande">Demande de stage </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/affectation">Lettre d'affectation</a>
-              </li>
-              
-              <li class="nav-item">
-                <a class="nav-link" href="/convention">Convention de stage </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-
-    <!-- Page Content -->
-    <div class="page-heading header-text">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1>Lettre D'affetation </h1>
-            <span>We are over 20 years of experience</span>
-          </div>
-        </div>
-      </div>
+    <div class="col-lg-12">
+      <fieldset>
+        <button type="submit" id="form-submit" class="filled-button">Envoyer la lettre d'affectation</button>
+      </fieldset>
     </div>
-
-  <div class="callback-form">
-  <div class="section-heading">
-    <h2>Formulaire de Lettre d'Affectation</h2>
   </div>
-  <form (ngSubmit)="saveData()" #affectationForm="ngForm" id="stage-request-form" action="process_stage_request.php" method="post">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <fieldset>
-          <input name="lastName" type="text" class="form-control" id="lastName" placeholder="Nom" [(ngModel)]="affectation.lastName" required>
-        </fieldset>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <fieldset>
-          <input name="firstName" type="text" class="form-control" id="firstName" placeholder="Prénom" [(ngModel)]="affectation.firstName" required>
-        </fieldset>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <fieldset>
-          <input name="classGrade" type="text" class="form-control" id="classGrade" placeholder="Classe/Niveau" [(ngModel)]="affectation.classGrade" required>
-        </fieldset>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <fieldset>
-          <input name="studentEmail" type="email" class="form-control" id="studentEmail" pattern="[^@]*@[^@]*" placeholder="Email de l'étudiant" [(ngModel)]="affectation.studentEmail" required>
-        </fieldset>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <fieldset>
-          <input name="companyName" type="text" class="form-control" id="companyName" placeholder="Nom de l'entreprise" [(ngModel)]="affectation.companyName" required>
-        </fieldset>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <fieldset>
-          <input name="companyEmail" type="email" class="form-control" id="companyEmail" pattern="[^@]*@[^@]*" placeholder="Email de l'entreprise" [(ngModel)]="affectation.companyEmail" required>
-        </fieldset>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <fieldset>
-          <select name="stageType" class="custom-select" id="stageType" [(ngModel)]="affectation.stageType" required>
-            <option value="" disabled selected hidden>Type de stage</option>
-            <optgroup label="Type de stage">
-              <option value="HUMAN_AND_SOCIAL_TRAINING_INTERNSHIP">Stage de formation humaine et sociale</option>
-              <option value="COMPANY_IMMERSION_INTERNSHIP">Stage d'immersion en entreprise</option>
-              <option value="ENGINEERING_INTERNSHIP">Stage d'ingénieur</option>
-            </optgroup>
-          </select>
-        </fieldset>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <fieldset>
-          <input name="telephoneNumber" type="text" class="form-control" id="telephoneNumber" placeholder="Numéro de téléphone" [(ngModel)]="affectation.telephoneNumber" required>
-        </fieldset>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <fieldset>
-          <label for="startDate">Date de début</label>
-          <input name="startDate" type="date" class="form-control" id="startDate" placeholder="Date de début" [(ngModel)]="affectation.startDate" required>
-        </fieldset>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <fieldset>
-          <label for="endDate">Date de fin</label>
-          <input name="endDate" type="date" class="form-control" id="endDate" placeholder="Date de fin" [(ngModel)]="affectation.endDate" required>
-        </fieldset>
-      </div>
-      
-      <div class="col-lg-12">
-        <fieldset>
-          <button type="submit" id="form-submit" class="filled-button">Envoyer la lettre d'affectation</button>
-        </fieldset>
-      </div>
-    </div>
-  </form>
+</form>
 </div>
 
 
-    <div class="partners">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="owl-partners owl-carousel">
-              <div class="partner-item">
-                <img src="assets/images/client-01.png" alt="">
-              </div>
+  <div class="partners">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="owl-partners owl-carousel">
+            <div class="partner-item">
+              <img src="assets/images/client-01.png" alt="">
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
