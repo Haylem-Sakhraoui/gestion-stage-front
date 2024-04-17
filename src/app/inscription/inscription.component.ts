@@ -1,12 +1,14 @@
 import { Component, NgModule, OnInit } from '@angular/core';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import FormBuilder and Validators
 import { RegisterRequest } from '../models/Register_request';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { AuthenticationResponse } from '../models/authentication_response';
-
 
 @Component({
   selector: 'app-inscription',
@@ -14,20 +16,18 @@ import { AuthenticationResponse } from '../models/authentication_response';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
-  registerRequest: FormGroup = {} as FormGroup;;
-  // registerRequest: RegisterRequest; 
-  // registerRequest: RegisterRequest = { firstname: '', lastname: '', email: '',studentClass:'', password: '', role: '' };
-
+  registerRequest: FormGroup = new FormGroup({});
   authResponse: AuthenticationResponse = {};
   message = '';
-  constructor(private formBuilder: FormBuilder,private authService: AuthService, private router: Router) {}
-  
+
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {}
+
   ngOnInit(): void {
-    this.registerRequest = this.formBuilder.group({ // Initialize registerForm with FormBuilder
+    this.registerRequest = this.formBuilder.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      studentClass: [''], // You can add validators if needed
+      studentClass: [''],
       password: ['', [Validators.required, Validators.minLength(8)]],
       role: ['', Validators.required]
     });
@@ -37,7 +37,16 @@ export class InscriptionComponent implements OnInit {
 
   addUser() {
     this.message = '';
-    this.authService.addUser(this.registerRequest)
+    const formData = {
+      firstname: this.registerRequest.value.firstname,
+      lastname: this.registerRequest.value.lastname,
+      email: this.registerRequest.value.email,
+      studentClass: this.registerRequest.value.studentClass,
+      password: this.registerRequest.value.password,
+      role: this.registerRequest.value.role
+    };
+
+    this.authService.addUser(formData)
       .subscribe(
         (response) => {
           console.log('User added successfully:', response);
@@ -48,6 +57,5 @@ export class InscriptionComponent implements OnInit {
           // Handle error appropriately, e.g., display an error message to the user
         }
       );
-    }
-
+  }
 }

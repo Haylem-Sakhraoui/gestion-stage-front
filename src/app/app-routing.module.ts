@@ -13,13 +13,12 @@ import { JournalComponent } from './journal/journal.component';
 import { AffectationComponent } from './affectation/affectation.component';
 import { ReclamationComponent } from './reclamationmanagement/reclamationAdmin/reclamation.component';
 import { ReclamationFormComponent } from './reclamationmanagement/reclamation-form/reclamation-form.component';
-import { RetrieveClaimComponent } from './reclamationmanagement/retrieve-claim/retrieve-claim.component';
-
+import { RetrieveClaimComponent } from './reclamationmanagement/retrieve-claim/retrieve-claim.component'
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { authGuard } from './services/auth/auth.guard.service';
 import { AdministrationComponent } from './admin/administration/administration.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { SettingComponent } from './services/setting/setting.component';
+import { SettingComponent } from './setting/setting.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ReclamationStudentFormComponent } from './reclamationmanagement/reclamation-student-form/reclamation-student-form.component';
 import { ChatComponent } from './chat/chat.component';

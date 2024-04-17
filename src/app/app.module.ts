@@ -20,17 +20,30 @@ import { ReclamationService } from './services/reclamation.service';
 import { ReclamationComponent } from './reclamationmanagement/reclamationAdmin/reclamation.component';
 import { ReclamationFormComponent } from './reclamationmanagement/reclamation-form/reclamation-form.component';
 import { RetrieveClaimComponent } from './reclamationmanagement/retrieve-claim/retrieve-claim.component';
+
+
+import { HttpClient } from '@angular/common/http';
+
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { AdministrationComponent } from './admin/administration/administration.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { SettingComponent } from './services/setting/setting.component';
+import { SettingComponent } from './setting/setting.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+
 import { ReclamationStudentFormComponent } from './reclamationmanagement/reclamation-student-form/reclamation-student-form.component';
 import { ChatComponent } from './chat/chat.component';
 import { FilterpipePipe } from './services/filterpipe/filterpipe.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+
+import { StatisticsComponent } from './statistics/statistics.component';
+import { NgChartsModule } from 'ng2-charts';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -44,6 +57,7 @@ import { FooterComponent } from './footer/footer.component';
     DepotComponent,
     JournalComponent,
     AffectationComponent,
+
     ReclamationComponent,
     ReclamationFormComponent,
     RetrieveClaimComponent,
@@ -57,16 +71,43 @@ import { FooterComponent } from './footer/footer.component';
     FilterpipePipe,
     HeaderComponent,
     FooterComponent,
+
+    ReclamationComponent, 
+    UserListComponent, 
+    AdministrationComponent, 
+    ResetPasswordComponent, 
+    SettingComponent, 
+    ForgetPasswordComponent, 
+    StatisticsComponent,
+
+    ReclamationComponent, UserListComponent, AdministrationComponent, ResetPasswordComponent, SettingComponent, ForgetPasswordComponent,
+
+
+  ReclamationComponent,
+  ReclamationFormComponent,
+  RetrieveClaimComponent,
+  
+    // Remove ReclamationComponent from declarations
+
+    ReclamationComponent, UserListComponent, AdministrationComponent, ResetPasswordComponent, SettingComponent,
+
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+
     NgbModule,
     CommonModule,
     ReactiveFormsModule,
     NgxPaginationModule
+
+    CommonModule,
+    ReactiveFormsModule,
+    NgChartsModule
+    
   ],
   providers: [ReclamationService],
   bootstrap: [AppComponent],
