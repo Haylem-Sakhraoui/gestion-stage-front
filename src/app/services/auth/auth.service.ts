@@ -32,8 +32,10 @@ export class AuthService {
   }
 
   public addUser(data :any) {
-    
-    return this.httpClient.post(this.baseUrl+"/adminaddUser",data);
+    const tokenUser = this.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenUser}`);
+
+    return this.httpClient.post(this.baseUrl+"/adminaddUser",data,{headers});
 
   }
   saveToken(token:string){

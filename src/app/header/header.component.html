@@ -45,7 +45,10 @@
                     </li>
                     <li class="nav-item">
                         <!-- Redimensionner le bouton "Logout" en fonction de vos besoins -->
-                        <button class="btn btn-danger btn-lg" (click)="logout()">Logout</button>
+                        <button class="btn btn-danger btn-lg" *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+
+
+
                     </li>
                 </ul>
             </div>
