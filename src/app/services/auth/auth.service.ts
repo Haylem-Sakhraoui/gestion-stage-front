@@ -32,6 +32,7 @@ export class AuthService {
   }
 
   public addUser(data :any) {
+    
     return this.httpClient.post(this.baseUrl+"/adminaddUser",data);
 
   }

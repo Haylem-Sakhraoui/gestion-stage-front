@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import FormBuilder and Validators
 import { RegisterRequest } from '../models/Register_request';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';

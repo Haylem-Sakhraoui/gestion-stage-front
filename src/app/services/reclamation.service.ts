@@ -35,7 +35,7 @@ public getAllReclamations(): Observable<Reclamation[]> {
     });
 
     // Envoyer la requête POST avec les en-têtes appropriés
-    return this.http.post<any>(this.apiUrl, { description }, { headers });
+    return this.http.post<any>(this.apiServerUrl + '/addClaim', { description }, { headers });
   }
 
   deleteReclamation(idReclamation: number): Observable<void> {

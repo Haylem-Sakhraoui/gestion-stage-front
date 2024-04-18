@@ -102,10 +102,8 @@ import { NgChartsModule } from 'ng2-charts';
     NgbModule,
     CommonModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
 
-    CommonModule,
-    ReactiveFormsModule,
     NgChartsModule
     
   ],
