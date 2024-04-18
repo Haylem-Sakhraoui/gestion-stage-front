@@ -105,9 +105,6 @@ public getUserStatistics(){
 
 
 
-
-
-
   public deleteUser(email: string) {
     const tokenUser = this.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenUser}`);

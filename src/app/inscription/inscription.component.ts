@@ -44,6 +44,7 @@ export class InscriptionComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log('User added successfully:', response);
+          this.router.navigate([this.router.url]);
           // You can add further logic here, such as displaying a success message or redirecting to another page
         },
         (error) => {
@@ -51,5 +52,6 @@ export class InscriptionComponent implements OnInit {
           // Handle error appropriately, e.g., display an error message to the user
         }
       );
+      
   }
 }
