@@ -13,13 +13,15 @@ import { JournalComponent } from './journal/journal.component';
 import { AffectationComponent } from './affectation/affectation.component';
 import { ReclamationComponent } from './reclamationmanagement/reclamationAdmin/reclamation.component';
 import { ReclamationFormComponent } from './reclamationmanagement/reclamation-form/reclamation-form.component';
-import { RetrieveClaimComponent } from './reclamationmanagement/retrieve-claim/retrieve-claim.component';
+import { RetrieveClaimComponent } from './reclamationmanagement/retrieve-claim/retrieve-claim.component'
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { authGuard } from './services/auth/auth.guard.service';
 import { AdministrationComponent } from './admin/administration/administration.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SettingComponent } from './setting/setting.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ReclamationStudentFormComponent } from './reclamationmanagement/reclamation-student-form/reclamation-student-form.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 const routes: Routes = [
@@ -36,16 +38,17 @@ const routes: Routes = [
   
   { path: 'reclamation', component: ReclamationComponent },
   {path: 'reclamation-form', component: ReclamationFormComponent},
+  {path: 'student-form', component: ReclamationStudentFormComponent},
   
   {path: 'retrieveClaim/:id', component: RetrieveClaimComponent},
 
   { path: 'userlist', component: UserListComponent, canActivate: [authGuard] },
-  { path: 'reclamation', component: ReclamationComponent },
+  
   { path: 'administration', component: AdministrationComponent, canActivate: [authGuard] },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'setting', component: SettingComponent , canActivate: [authGuard] },
-  { path: 'forget-password', component: ForgetPasswordComponent }
-
+  { path: 'forget-password', component: ForgetPasswordComponent },
+  { path: 'chat', component: ChatComponent }
 
 ];
 

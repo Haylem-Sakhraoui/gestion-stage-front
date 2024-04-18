@@ -1,5 +1,10 @@
 import { Component, NgModule, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import FormBuilder and Validators
+import { RegisterRequest } from '../models/Register_request';
+
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { AuthenticationResponse } from '../models/authentication_response';

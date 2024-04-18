@@ -1,0 +1,108 @@
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Stage Bot</title>
+  <style>
+
+    /* Chat container styles */
+    .container-chat {
+  max-width: 1000px; /* Augmenter la largeur maximale */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+
+    .message {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      max-width: 70%;
+      word-wrap: break-word;
+    }
+
+    .from {
+      background-color: #f0f0f0;
+      align-self: flex-start;
+    }
+
+    .to {
+      background-color: #d3f7ff;
+      align-self: flex-end;
+    }
+
+    .input-container-chat {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .form-control-chat {
+      width: calc(100% - 150px); /* Adjusted width */
+      margin-right: 10px;
+      border-radius: 20px; /* Rounded input */
+      border: 1px solid #ccc; /* Light border */
+      padding: 8px 15px; /* Padding adjustment */
+      font-size: 16px; /* Font size adjustment */
+    }
+
+    .btn-primary-chat {
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      border-radius: 20px; /* Rounded button */
+      padding: 8px 20px; /* Padding adjustment */
+      font-size: 16px; /* Font size adjustment */
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #c82333;
+    }
+
+    .float-right {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+ <app-header></app-header>
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Welcome {{ user.firstname }} {{ user.lastname }}</h1>
+            <span>We are over 20 years of experience</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Page Content -->
+  <div class="container-chat">
+    <div class="col-md-12 text-center">
+      <ng-container *ngFor="let message of messages">
+        <div class="message" [ngClass]="{'from': message.author === 'bot', 'to': message.author === 'user'}">
+          {{message.content}}
+        </div>
+      </ng-container>
+      <div class="col-md-12 text-center input-container-chat">
+        <label *ngIf="!value; else dialogInfo" for="nameField">Your Messages</label>
+        <input [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text" class="form-control-chat">
+        <button class="btn btn-primary-chat" (click)="sendMessage()">Ask</button>
+        <ng-template #dialogInfo><span class="float-right"> Messages:{{messages.length}}</span></ng-template>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+
+
+
+
+</body>
+

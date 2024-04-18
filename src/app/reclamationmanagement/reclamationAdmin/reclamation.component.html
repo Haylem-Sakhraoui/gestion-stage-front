@@ -1,83 +1,56 @@
+
+<head>
+  <style>
+    /* Style pour centrer horizontalement */
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Style pour la barre de recherche */
+    .search-container .input-group {
+      width: 100%;
+      max-width: 500000px;
+    }
+
+    /* Style pour le bouton de recherche */
+    .search-container .input-group-append button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    /* Style pour les boutons d'action */
+    .btn-details {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+
 <body>
 
   <!-- ***** Preloader Start ***** -->
+<app-header></app-header>
 
-  <!-- ***** Preloader End ***** -->
 
-  <!-- Header -->
-  <div class="sub-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-xs-12">
-          <ul class="left-info">
-            <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
-            <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <ul class="right-icons">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fa fa-behance"></i></a></li>
-          </ul>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8">
+        <!-- Envelopper la barre de recherche dans une div -->
+        <div class="search-container">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search with email or status..." id="email" autocomplete="off" [(ngModel)]="filtername" />
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button">Search</button>
+            </div>
+          </div>
+          <p>{{filtername}}</p>
         </div>
       </div>
     </div>
   </div>
 
-  <header class="">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-        <a class="navbar-brand" href="/accueil"><h2>Esprit Stage </h2></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/accueil">Accueil
-
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/apropos">A propos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/inscription">s'inscrit</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/connecter"> se connecter</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/reclamation">Reclamation </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/reclamation-form">Ajouter Reclamation </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-
-  <!-- Page Content -->
-  <div class="page-heading header-text">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Reclamation Table</h1>
-          <span>We are over 20 years of experience</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- reclamation.component.html -->
-  <div class="container mt-4">
+  <div class="table-responsive mt-4">
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
@@ -92,37 +65,36 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let ReclamationItem of reclamationArray">
+        <tr *ngFor="let ReclamationItem of reclamationArray | filterpipe : filtername | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
           <th scope="row">{{ ReclamationItem.idReclamation }}</th>
-          <td>{{ ReclamationItem.dateCreation  }}</td>
+          <td>{{ ReclamationItem.dateCreation | date: 'short' }}</td>
           <td>{{ ReclamationItem.description }}</td>
-          <td>{{ ReclamationItem.statutReclamation }}</td>
+          <td>
+            <span [ngClass]="{'badge badge-info': ReclamationItem.statutReclamation === 'EN_ATTENTE', 'badge badge-warning': ReclamationItem.statutReclamation === 'EN_COURS', 'badge badge-success': ReclamationItem.statutReclamation === 'RESOLUE'}">
+              {{ ReclamationItem.statutReclamation }}
+            </span>
+          </td>
           <td>{{ ReclamationItem.firstname }}</td>
           <td>{{ ReclamationItem.lastname }}</td>
           <td>{{ ReclamationItem.email }}</td>
           <td>
-            <button type="button" class="btn btn-primary btn-details"
-              (click)="getDetail(ReclamationItem.idReclamation)">Details</button>
-            <button type="button" class="btn btn-danger btn-details ml-2"
-              (click)="deleteReclamation(ReclamationItem.idReclamation)">Supprimer</button>
+            <button type="button" class="btn btn-primary btn-details" (click)="getDetail(ReclamationItem.idReclamation)">Details</button>
+            <button type="button" class="btn btn-danger btn-details ml-2" (click)="deleteReclamation(ReclamationItem.idReclamation)">Supprimer</button>
           </td>
         </tr>
       </tbody>
     </table>
-
-    <!-- Pagination -->
-    <nav aria-label="..." *ngIf="reclamationArray && reclamationArray.length > 0">
-      <ul class="pagination justify-content-center">
-        <li class="page-item"><a class="page-link" (click)="setPreviousPage($event)">Previous</a></li>
-        <li class="page-item"  *ngFor="let p of pages ; let i = index " [ngClass]="{'active':i==page}">
-          <a class="page-link"   href="" (click)="setPage(i,$event)">{{i+1}}</a>
-        </li>
-        <li class="page-item"><a class="page-link" (click)="setNextPage($event)">Next</a></li>
-      </ul>
-    </nav>
-
   </div>
-
-  <!-- ... Other parts of your HTML ... -->
-
+  <div class="pagination-container">
+    <div class="mt-8 py-5 d-flex justify-content-center">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+  <!-- jQuery, Popper.js, Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+<app-footer></app-footer>
 </body>
+

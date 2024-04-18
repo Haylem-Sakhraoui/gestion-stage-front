@@ -20,6 +20,8 @@ export class AccueilComponent {
   logout() {
     this.authService.logout();
   }
+  // Dans ReclamationFormComponent
+
 
   getUserInformation() {
     this.userService.retrieveUserConnected(this.userService.getToken())

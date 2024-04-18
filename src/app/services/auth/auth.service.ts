@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { User } from '../../models/User';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, tap } from 'rxjs';
+import { of } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +32,10 @@ export class AuthService {
   }
 
   public addUser(data :any) {
-    return this.httpClient.post(this.baseUrl+"/adminaddUser",data);
+    const tokenUser = this.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenUser}`);
+
+    return this.httpClient.post(this.baseUrl+"/adminaddUser",data,{headers});
 
   }
   saveToken(token:string){
@@ -93,20 +98,37 @@ export class AuthService {
   getUserRoles(login :string){    
     
   }
+  
 
-  public retrieveUserConnected(token: string):void {
-    const header= new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    const user = this.httpClient.get(`${this.baseUrl}/currentUser`,{
-      headers:header
-    }).subscribe((user: any) => {
-
-      this.User = user;
-      console.log("retrieve User connected ", user);
-    });
-
-   console.log(user)
-
-    
+  public retrieveUserConnected(token: string): Observable<any> {
+    const header = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.httpClient.get(`${this.baseUrl}/currentUser`, {
+      headers: header
+    }).pipe(
+      tap((user: any) => {
+        this.User = user;
+        console.log("retrieve User connected ", user);
+      })
+    );
+  }
+  isAuthenticated(): Observable<boolean> {
+    const token = localStorage.getItem('token');
+    return of(token !== null); // Renvoie true si un jeton est présent, sinon false
+  } 
+  retrieveUserId(): Observable<number | null> {
+    const token = localStorage.getItem('token');
+    if (token) {
+      return this.httpClient.get<any>(`${this.baseUrl}/user/currentUser`).pipe(
+        map((user: any) => user.id), // Extraire l'ID de la réponse
+        catchError(error => {
+          console.error('Erreur lors de la récupération de l\'ID de l\'utilisateur :', error);
+          return of(null);
+        })
+      );
+    } else {
+      console.error('Aucun jeton d\'authentification trouvé');
+      return of(null);
+    }
   }
 
   getCurrentUser() {
